@@ -7,7 +7,7 @@
 <title>DataRight+: Energy Resource Set</title>
 <meta content="Stuart Low" name="author">
 <meta content="
-       This is the resource set profile outlining the energy sector related endpoints. In addition to outlining Initiator and Provider provisions it also specifies requirements for the Energy Authority (responsible for electricity assets and usage) and Energy Plan Website (responsible for retail electricity plan information). 
+       This is the resource set profile outlining the energy sector related endpoints. In addition to outlining Initiator and Provider provisions it also specifies requirements for the Energy Authority (electricity assets and usage) and Energy Plan Website (retail electricity plan information). 
     " name="description">
 <meta content="xml2rfc 3.20.1" name="generator">
 <meta content="draft-authors-datarightplus-resource-set-energy-latest" name="ietf.draft">
@@ -1059,7 +1059,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">DataRight+: Energy Resource Set</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This is the resource set profile outlining the energy sector related endpoints. In addition to outlining Initiator and Provider provisions it also specifies requirements for the Energy Authority (responsible for electricity assets and usage) and Energy Plan Website (responsible for retail electricity plan information).<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This is the resource set profile outlining the energy sector related endpoints. In addition to outlining Initiator and Provider provisions it also specifies requirements for the Energy Authority (electricity assets and usage) and Energy Plan Website (retail electricity plan information).<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note" id="section-note.1">
       <h2 id="name-notational-conventions">
@@ -1119,49 +1119,46 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-terminology" class="internal xref">Terminology</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-authorisation-scopes" class="internal xref">Authorisation Scopes</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-providers" class="internal xref">Providers</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-overlapping-scope-optimisat" class="internal xref">Overlapping Scope Optimisation</a></p>
+                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-authorisation-server" class="internal xref">Authorisation Server</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.1">
+                    <p id="section-toc.1-1.3.2.1.2.1.1" class="keepWithNext"><a href="#section-3.1.1" class="auto internal xref">3.1.1</a>.  <a href="#name-authorisation-scopes" class="internal xref">Authorisation Scopes</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-resource-server" class="internal xref">Resource Server</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-providers" class="internal xref">Providers</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-authorisation-server" class="internal xref">Authorisation Server</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-resource-server" class="internal xref">Resource Server</a></p>
-</li>
-            </ul>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-initiators" class="internal xref">Initiators</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-initiators" class="internal xref">Initiators</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-electricity-authority" class="internal xref">Electricity Authority</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-electricity-authority" class="internal xref">Electricity Authority</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
-                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-authorisation-server-2" class="internal xref">Authorisation Server</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-authorisation-server-2" class="internal xref">Authorisation Server</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
-                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-resource-server-2" class="internal xref">Resource Server</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-resource-server-2" class="internal xref">Resource Server</a></p>
 </li>
             </ul>
 </li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-electricity-plan-website" class="internal xref">Electricity Plan Website</a></p>
+</li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-electricity-plan-website" class="internal xref">Electricity Plan Website</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-acknowledgement" class="internal xref">Acknowledgement</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-acknowledgement" class="internal xref">Acknowledgement</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
 </li>
         </ul>
 </nav>
@@ -1183,318 +1180,318 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-2-1">This specification utilises the various terms outlined within <span>[<a href="#DATARIGHTPLUS-ROSETTA" class="cite xref">DATARIGHTPLUS-ROSETTA</a>]</span>.<a href="#section-2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="authorisation-scopes">
-<section id="section-3">
-      <h2 id="name-authorisation-scopes">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-authorisation-scopes" class="section-name selfRef">Authorisation Scopes</a>
-      </h2>
-<p id="section-3-1">Technical authorisation scopes are defined between Provider and Initiator and permit access to resource server endpoints. In addition, this specification also outlines the title and a simple description of the language to use to describe the data set referred to as Data Set Language.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<p id="section-3-2">Providers and Initiators <span class="bcp14">SHALL</span> utilise the prescribed authorisation scopes and Data Set Language when seeking Consumer authorisation:<a href="#section-3-2" class="pilcrow">¶</a></p>
-<table class="center" id="table-1">
-        <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
-<thead>
-          <tr>
-            <th class="text-left" rowspan="1" colspan="1">
-              <code>scope</code> value</th>
-            <th class="text-left" rowspan="1" colspan="1">Data Set Language</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1">
-              <code>energy:accounts.basic:read</code>
-</td>
-            <td class="text-left" rowspan="1" colspan="1">
-              <strong>Accounts and plans</strong>
-</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Account and plan information;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1">
-              <code>energy:accounts.detail:read</code>
-</td>
-            <td class="text-left" rowspan="1" colspan="1">
-              <strong>Account and plan details</strong>
-</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Account type;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Fees, features, rates, and discounts;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Additional account users;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1">
-              <code>energy:accounts.concessions:read</code>
-</td>
-            <td class="text-left" rowspan="1" colspan="1">
-              <strong>Concessions and assistance</strong>
-</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Concession type;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Concession information;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1">
-              <code>energy:accounts.paymentschedule:read</code>
-</td>
-            <td class="text-left" rowspan="1" colspan="1">
-              <strong>Payment preferences</strong>
-</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Payment and billing frequency;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Any scheduled payment details;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1">
-              <code>energy:billing:read</code>
-</td>
-            <td class="text-left" rowspan="1" colspan="1">
-              <strong>Billing payments and history</strong>
-</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Account balance;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Payment method;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Payment status;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Charges, discounts, credits;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Billing date;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Usage for billing period;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Payment date;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Invoice number;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1">
-              <code>energy:electricity.servicepoints.basic:read</code>
-</td>
-            <td class="text-left" rowspan="1" colspan="1">
-              <strong>Electricity connection</strong>
-</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">National Meter Identifier (NMI);</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Customer type;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Connection point details;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1">
-              <code>energy:electricity.servicepoints.detail:read</code>
-</td>
-            <td class="text-left" rowspan="1" colspan="1">
-              <strong>Electricity meter</strong>
-</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Supply address;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Meter details;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Associated service providers;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1">
-              <code>energy:electricity.der:read</code>
-</td>
-            <td class="text-left" rowspan="1" colspan="1">
-              <strong>Energy generation and storage</strong>
-</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Generation information;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Generation or storage device type;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Device characteristics;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Devices that can operate without the grid;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Energy conversion information;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1">
-              <code>energy:electricity.usage:read</code>
-</td>
-            <td class="text-left" rowspan="1" colspan="1">
-              <strong>Electricity usage</strong>
-</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Usage;</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1"></td>
-            <td class="text-left" rowspan="1" colspan="1">Meter details;</td>
-          </tr>
-        </tbody>
-      </table>
-<div id="overlapping-scope-optimisation">
-<section id="section-3.1">
-        <h3 id="name-overlapping-scope-optimisat">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-overlapping-scope-optimisat" class="section-name selfRef">Overlapping Scope Optimisation</a>
-        </h3>
-<p id="section-3.1-1">In certain situations multiple technical scopes overlap which can lead to confusion by the User granting permission for the Consumer (which may be themselves or an Entity they represent).<a href="#section-3.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.1-2">Data Cluster Language presentation <span class="bcp14">SHALL</span> be collapsed for the following pairs of <code>scope</code> values:<a href="#section-3.1-2" class="pilcrow">¶</a></p>
-<table class="center" id="table-2">
-          <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
-<thead>
-            <tr>
-              <th class="text-left" rowspan="1" colspan="1">
-                <code>scope</code> pairing</th>
-              <th class="text-left" rowspan="1" colspan="1">Data Set Language</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:accounts.basic:read</code> and</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <strong>Account and plan details</strong>
-</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:accounts.detail:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">Account and plan information;</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1"></td>
-              <td class="text-left" rowspan="1" colspan="1">Account type;</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1"></td>
-              <td class="text-left" rowspan="1" colspan="1">Fees, features, rates, and discounts;</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1"></td>
-              <td class="text-left" rowspan="1" colspan="1">Additional account users;</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:electricity.servicepoints.basic:read</code> and</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <strong>Electricity connection and meter</strong>
-</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:electricity.servicepoints.detail:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">National Meter Identifier (NMI);</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1"></td>
-              <td class="text-left" rowspan="1" colspan="1">Supply address;</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1"></td>
-              <td class="text-left" rowspan="1" colspan="1">Customer type;</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1"></td>
-              <td class="text-left" rowspan="1" colspan="1">Connection point details;</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1"></td>
-              <td class="text-left" rowspan="1" colspan="1">Meter details;</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1"></td>
-              <td class="text-left" rowspan="1" colspan="1">Associated service providers;</td>
-            </tr>
-          </tbody>
-        </table>
-</section>
-</div>
-</section>
-</div>
 <div id="providers">
-<section id="section-4">
+<section id="section-3">
       <h2 id="name-providers">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-providers" class="section-name selfRef">Providers</a>
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-providers" class="section-name selfRef">Providers</a>
       </h2>
-<p id="section-4-1">Providers are <span class="bcp14">REQUIRED</span> to deliver a number of authorisation and resource server capabilities.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-3-1">Providers are <span class="bcp14">REQUIRED</span> to deliver a number of authorisation and resource server capabilities.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <div id="authorisation-server">
-<section id="section-4.1">
+<section id="section-3.1">
         <h3 id="name-authorisation-server">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-authorisation-server" class="section-name selfRef">Authorisation Server</a>
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-authorisation-server" class="section-name selfRef">Authorisation Server</a>
         </h3>
-<p id="section-4.1-1">In addition to other provisions incorporated within the relevent ecosystem set, the Provider authorisation server <span class="bcp14">SHALL</span>:<a href="#section-4.1-1" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="compact type-1" id="section-4.1-2">
-<li id="section-4.1-2.1">Support the <code>scope</code> parameters outlined within [Authorisation Scopes];<a href="#section-4.1-2.1" class="pilcrow">¶</a>
+<p id="section-3.1-1">In addition to other provisions incorporated within the relevant ecosystem set, the Provider authorisation server <span class="bcp14">SHALL</span>:<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-3.1-2">
+<li id="section-3.1-2.1">Support the <span>[<a href="#RFC6749" class="cite xref">RFC6749</a>]</span> <code>scope</code> parameter with possible values outlined within <a href="#name-authorisation-scopes">Authorisation Scopes</a>;<a href="#section-3.1-2.1" class="pilcrow">¶</a>
 </li>
         </ol>
+<div id="authorisation-scopes">
+<section id="section-3.1.1">
+          <h4 id="name-authorisation-scopes">
+<a href="#section-3.1.1" class="section-number selfRef">3.1.1. </a><a href="#name-authorisation-scopes" class="section-name selfRef">Authorisation Scopes</a>
+          </h4>
+<p id="section-3.1.1-1">Possible <code>scope</code> values to be provided by the Initiator to the Provider are documented below. In addition, this specification also outlines the title and a simple description of the language to use to describe the data set referred to as Data Set Language.<a href="#section-3.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1.1-2">Providers and Initiators <span class="bcp14">SHALL</span> utilise the prescribed authorisation scopes and Data Set Language when seeking Consumer authorisation:<a href="#section-3.1.1-2" class="pilcrow">¶</a></p>
+<table class="center" id="table-1">
+            <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">
+                  <code>scope</code> value</th>
+                <th class="text-left" rowspan="1" colspan="1">Data Set Language</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>energy:accounts.basic:read</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <strong>Accounts and plans</strong>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Account and plan information;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>energy:accounts.detail:read</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <strong>Account and plan details</strong>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Account type;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Fees, features, rates, and discounts;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Additional account users;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>energy:accounts.concessions:read</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <strong>Concessions and assistance</strong>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Concession type;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Concession information;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>energy:accounts.paymentschedule:read</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <strong>Payment preferences</strong>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Payment and billing frequency;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Any scheduled payment details;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>energy:billing:read</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <strong>Billing payments and history</strong>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Account balance;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Payment method;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Payment status;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Charges, discounts, credits;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Billing date;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Usage for billing period;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Payment date;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Invoice number;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>energy:electricity.servicepoints.basic:read</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <strong>Electricity connection</strong>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">National Meter Identifier (NMI);</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Customer type;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Connection point details;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>energy:electricity.servicepoints.detail:read</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <strong>Electricity meter</strong>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Supply address;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Meter details;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Associated service providers;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>energy:electricity.der:read</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <strong>Energy generation and storage</strong>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Generation information;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Generation or storage device type;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Device characteristics;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Devices that can operate without the grid;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Energy conversion information;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>energy:electricity.usage:read</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <strong>Electricity usage</strong>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Usage;</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1"></td>
+                <td class="text-left" rowspan="1" colspan="1">Meter details;</td>
+              </tr>
+            </tbody>
+          </table>
+<div id="overlapping-scope-optimisation">
+<section id="section-3.1.1.1">
+            <h5 id="name-overlapping-scope-optimisat">
+<a href="#section-3.1.1.1" class="section-number selfRef">3.1.1.1. </a><a href="#name-overlapping-scope-optimisat" class="section-name selfRef">Overlapping Scope Optimisation</a>
+            </h5>
+<p id="section-3.1.1.1-1">In certain situations multiple technical scopes overlap which can lead to confusion by the User granting permission for the Consumer (which may be themselves or an Entity they represent).<a href="#section-3.1.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1.1.1-2">Data Cluster Language presentation <span class="bcp14">SHALL</span> be collapsed for the following pairs of <code>scope</code> values:<a href="#section-3.1.1.1-2" class="pilcrow">¶</a></p>
+<table class="center" id="table-2">
+              <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
+<thead>
+                <tr>
+                  <th class="text-left" rowspan="1" colspan="1">
+                    <code>scope</code> pairing</th>
+                  <th class="text-left" rowspan="1" colspan="1">Data Set Language</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1">
+                    <code>energy:accounts.basic:read</code> and</td>
+                  <td class="text-left" rowspan="1" colspan="1">
+                    <strong>Account and plan details</strong>
+</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1">
+                    <code>energy:accounts.detail:read</code>
+</td>
+                  <td class="text-left" rowspan="1" colspan="1">Account and plan information;</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1"></td>
+                  <td class="text-left" rowspan="1" colspan="1">Account type;</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1"></td>
+                  <td class="text-left" rowspan="1" colspan="1">Fees, features, rates, and discounts;</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1"></td>
+                  <td class="text-left" rowspan="1" colspan="1">Additional account users;</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1">
+                    <code>energy:electricity.servicepoints.basic:read</code> and</td>
+                  <td class="text-left" rowspan="1" colspan="1">
+                    <strong>Electricity connection and meter</strong>
+</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1">
+                    <code>energy:electricity.servicepoints.detail:read</code>
+</td>
+                  <td class="text-left" rowspan="1" colspan="1">National Meter Identifier (NMI);</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1"></td>
+                  <td class="text-left" rowspan="1" colspan="1">Supply address;</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1"></td>
+                  <td class="text-left" rowspan="1" colspan="1">Customer type;</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1"></td>
+                  <td class="text-left" rowspan="1" colspan="1">Connection point details;</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1"></td>
+                  <td class="text-left" rowspan="1" colspan="1">Meter details;</td>
+                </tr>
+                <tr>
+                  <td class="text-left" rowspan="1" colspan="1"></td>
+                  <td class="text-left" rowspan="1" colspan="1">Associated service providers;</td>
+                </tr>
+              </tbody>
+            </table>
+</section>
+</div>
+</section>
+</div>
 </section>
 </div>
 <div id="resource-server">
-<section id="section-4.2">
+<section id="section-3.2">
         <h3 id="name-resource-server">
-<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-resource-server" class="section-name selfRef">Resource Server</a>
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-resource-server" class="section-name selfRef">Resource Server</a>
         </h3>
-<p id="section-4.2-1">The Provider <span class="bcp14">SHALL</span> deliver the following authorisation enabled endpoints, in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY" class="cite xref">DATARIGHTPLUS-REDOCLY</a>]</span>:<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-1">The Provider <span class="bcp14">SHALL</span> deliver the following authorisation enabled endpoints, in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY" class="cite xref">DATARIGHTPLUS-REDOCLY</a>]</span>:<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-3">
           <caption><a href="#table-3" class="selfRef">Table 3</a></caption>
 <thead>
@@ -1790,7 +1787,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
             </tr>
           </tbody>
         </table>
-<p id="section-4.2-3">In addition, the Provider <span class="bcp14">MAY</span> deliver the following unauthenticated and generally available endpoints, in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY" class="cite xref">DATARIGHTPLUS-REDOCLY</a>]</span>:<a href="#section-4.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.2-3">In addition, the Provider <span class="bcp14">MAY</span> deliver the following unauthenticated and generally available endpoints, in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY" class="cite xref">DATARIGHTPLUS-REDOCLY</a>]</span>:<a href="#section-3.2-3" class="pilcrow">¶</a></p>
 <table class="center" id="table-4">
           <caption><a href="#table-4" class="selfRef">Table 4</a></caption>
 <thead>
@@ -1832,33 +1829,33 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </section>
 </div>
 <div id="initiators">
-<section id="section-5">
+<section id="section-4">
       <h2 id="name-initiators">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-initiators" class="section-name selfRef">Initiators</a>
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-initiators" class="section-name selfRef">Initiators</a>
       </h2>
-<p id="section-5-1">This specification contains no additional provisions for Initiators.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">Initiators <span class="bcp14">SHALL</span> describe the requested <code>scope</code> values using the same Data Set Language as Providers, as outlined in <a href="#name-authorisation-scopes">Authorisation Scopes</a>.<a href="#section-4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="electricity-authority">
-<section id="section-6">
+<section id="section-5">
       <h2 id="name-electricity-authority">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-electricity-authority" class="section-name selfRef">Electricity Authority</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-electricity-authority" class="section-name selfRef">Electricity Authority</a>
       </h2>
-<p id="section-6-1">The Electricity Authority <span class="bcp14">SHALL</span> deliver the electricity asset and usage information to the Provider.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">The Electricity Authority <span class="bcp14">SHALL</span> deliver the electricity asset and usage information to the Provider.<a href="#section-5-1" class="pilcrow">¶</a></p>
 <div id="authorisation-server-1">
-<section id="section-6.1">
+<section id="section-5.1">
         <h3 id="name-authorisation-server-2">
-<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-authorisation-server-2" class="section-name selfRef">Authorisation Server</a>
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-authorisation-server-2" class="section-name selfRef">Authorisation Server</a>
         </h3>
-<p id="section-6.1-1">The Electricity Authority <span class="bcp14">SHALL</span> authorise Providers using existing information security protocols. The specific details of this are outside the scope of this document.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.1-1">The Electricity Authority <span class="bcp14">SHALL</span> authorise Providers using existing information security protocols. The specific details of this are outside the scope of this document.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="resource-server-1">
-<section id="section-6.2">
+<section id="section-5.2">
         <h3 id="name-resource-server-2">
-<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-resource-server-2" class="section-name selfRef">Resource Server</a>
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-resource-server-2" class="section-name selfRef">Resource Server</a>
         </h3>
-<p id="section-6.2-1">The Electricity Authority <span class="bcp14">SHALL</span> make the following restricted endpoints available to Providers, using existing authentication and authorisation channels, and in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY" class="cite xref">DATARIGHTPLUS-REDOCLY</a>]</span>:<a href="#section-6.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2-1">The Electricity Authority <span class="bcp14">SHALL</span> make the following restricted endpoints available to Providers, using existing authentication and authorisation channels, and in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY" class="cite xref">DATARIGHTPLUS-REDOCLY</a>]</span>:<a href="#section-5.2-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-5">
           <caption><a href="#table-5" class="selfRef">Table 5</a></caption>
 <thead>
@@ -1944,11 +1941,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </section>
 </div>
 <div id="electricity-plan-website">
-<section id="section-7">
+<section id="section-6">
       <h2 id="name-electricity-plan-website">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-electricity-plan-website" class="section-name selfRef">Electricity Plan Website</a>
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-electricity-plan-website" class="section-name selfRef">Electricity Plan Website</a>
       </h2>
-<p id="section-7-1">The Electricity Plan Website <span class="bcp14">SHALL</span> deliver the following unauthenticated and generally available endpoints, in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY" class="cite xref">DATARIGHTPLUS-REDOCLY</a>]</span>:<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">The Electricity Plan Website <span class="bcp14">SHALL</span> deliver the following unauthenticated and generally available endpoints, in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY" class="cite xref">DATARIGHTPLUS-REDOCLY</a>]</span>:<a href="#section-6-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-6">
         <caption><a href="#table-6" class="selfRef">Table 6</a></caption>
 <thead>
@@ -1988,24 +1985,29 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </section>
 </div>
 <div id="acknowledgement">
-<section id="section-8">
+<section id="section-7">
       <h2 id="name-acknowledgement">
-<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-acknowledgement" class="section-name selfRef">Acknowledgement</a>
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-acknowledgement" class="section-name selfRef">Acknowledgement</a>
       </h2>
-<p id="section-8-1">The following people contributed to this document:<a href="#section-8-1" class="pilcrow">¶</a></p>
+<p id="section-7-1">The following people contributed to this document:<a href="#section-7-1" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-8-2.1">Stuart Low (Biza.io) - Editor<a href="#section-8-2.1" class="pilcrow">¶</a>
+<li class="compact" id="section-7-2.1">Stuart Low (Biza.io) - Editor<a href="#section-7-2.1" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="section-8-3">We acknowledge the contribution to the <span>[<a href="#CDS" class="cite xref">CDS</a>]</span> of the following individuals:
-- James Bligh (Data Standards Body) - Lead Architect for the Consumer Data Right
-- Mark Verstege (Data Standards Body) - Lead Architect, Banking &amp; Information Security for the Consumer Data Right
-- Ivan Hosgood (formerly Data Standards Body &amp; ACCC) - Solutions Architect<a href="#section-8-3" class="pilcrow">¶</a></p>
+<p id="section-7-3">We acknowledge the contribution to the <span>[<a href="#CDS" class="cite xref">CDS</a>]</span> of the following individuals:<a href="#section-7-3" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-7-4.1">James Bligh (Data Standards Body) - Lead Architect for the Consumer Data Right<a href="#section-7-4.1" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-7-4.2">Mark Verstege (Data Standards Body) - Lead Architect, Banking &amp; Information Security for the Consumer Data Right<a href="#section-7-4.2" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="section-7-4.3">Ivan Hosgood (formerly Data Standards Body &amp; ACCC) - Solutions Architect<a href="#section-7-4.3" class="pilcrow">¶</a>
+</li>
+      </ul>
 </section>
 </div>
-<section id="section-9">
+<section id="section-8">
       <h2 id="name-normative-references">
-<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
       </h2>
 <dl class="references">
 <dt id="CDS">[CDS]</dt>
@@ -2021,8 +2023,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <span class="refAuthor">Low, S.</span>, <span class="refTitle">"DataRight+ Rosetta Stone"</span>, <span>&lt;<a href="https://datarightplus.github.io/datarightplus-specs/main/datarightplus-rosetta.html">https://datarightplus.github.io/datarightplus-specs/main/datarightplus-rosetta.html</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
-    <dd>
+      <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc2119">https://www.rfc-editor.org/info/rfc2119</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6749">[RFC6749]</dt>
+    <dd>
+<span class="refAuthor">Hardt, D.</span>, <span class="refTitle">"The OAuth 2.0 Authorization Framework"</span>, <time datetime="2012-10" class="refDate">October 2012</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc6749">https://datatracker.ietf.org/doc/html/rfc6749</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
