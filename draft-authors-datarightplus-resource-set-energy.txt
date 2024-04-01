@@ -1,0 +1,463 @@
+
+
+
+
+datarightplus                                                     S. Low
+Internet-Draft                                                   Biza.io
+Intended status: Experimental                               1 April 2024
+Expires: 3 October 2024
+
+
+                    DataRight+: Energy Resource Set
+         draft-authors-datarightplus-resource-set-energy-latest
+
+Abstract
+
+   This is the resource set profile outlining the energy sector related
+   endpoints.  In addition to outlining Initiator and Provider
+   provisions it also specifies requirements for the Energy Authority
+   (responsible for electricity assets and usage) and Energy Plan
+   Website (responsible for retail electricity plan information).
+
+Notational Conventions
+
+   The keywords "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD
+   NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
+   interpreted as described in [RFC2119].
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 3 October 2024.
+
+Copyright Notice
+
+   Copyright (c) 2024 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.
+
+Table of Contents
+
+   1.  Scope
+   2.  Terminology
+   3.  Authorisation Scopes
+     3.1.  Overlapping Scope Optimisation
+   4.  Providers
+     4.1.  Authorisation Server
+     4.2.  Resource Server
+   5.  Initiators
+   6.  Electricity Authority
+     6.1.  Authorisation Server
+     6.2.  Resource Server
+   7.  Electricity Plan Website
+   8.  Acknowledgement
+   9.  Normative References
+   Author's Address
+
+1.  Scope
+
+   The scope of this document is intended to be limited to the resource
+   server endpoints related to energy, and their associated
+   authorisation contexts.
+
+2.  Terminology
+
+   This specification utilises the various terms outlined within
+   [DATARIGHTPLUS-ROSETTA].
+
+3.  Authorisation Scopes
+
+   Technical authorisation scopes are defined between Provider and
+   Initiator and permit access to resource server endpoints.  In
+   addition, this specification also outlines the title and a simple
+   description of the language to use to describe the data set referred
+   to as Data Set Language.
+
+   Providers and Initiators SHALL utilise the prescribed authorisation
+   scopes and Data Set Language when seeking Consumer authorisation:
+
+    +==============================================+==================+
+    | scope value                                  | Data Set         |
+    |                                              | Language         |
+    +==============================================+==================+
+    | energy:accounts.basic:read                   | *Accounts and    |
+    |                                              | plans*           |
+    +----------------------------------------------+------------------+
+    |                                              | Account and plan |
+    |                                              | information;     |
+    +----------------------------------------------+------------------+
+    | energy:accounts.detail:read                  | *Account and     |
+    |                                              | plan details*    |
+    +----------------------------------------------+------------------+
+    |                                              | Account type;    |
+    +----------------------------------------------+------------------+
+    |                                              | Fees, features,  |
+    |                                              | rates, and       |
+    |                                              | discounts;       |
+    +----------------------------------------------+------------------+
+    |                                              | Additional       |
+    |                                              | account users;   |
+    +----------------------------------------------+------------------+
+    | energy:accounts.concessions:read             | *Concessions and |
+    |                                              | assistance*      |
+    +----------------------------------------------+------------------+
+    |                                              | Concession type; |
+    +----------------------------------------------+------------------+
+    |                                              | Concession       |
+    |                                              | information;     |
+    +----------------------------------------------+------------------+
+    | energy:accounts.paymentschedule:read         | *Payment         |
+    |                                              | preferences*     |
+    +----------------------------------------------+------------------+
+    |                                              | Payment and      |
+    |                                              | billing          |
+    |                                              | frequency;       |
+    +----------------------------------------------+------------------+
+    |                                              | Any scheduled    |
+    |                                              | payment details; |
+    +----------------------------------------------+------------------+
+    | energy:billing:read                          | *Billing         |
+    |                                              | payments and     |
+    |                                              | history*         |
+    +----------------------------------------------+------------------+
+    |                                              | Account balance; |
+    +----------------------------------------------+------------------+
+    |                                              | Payment method;  |
+    +----------------------------------------------+------------------+
+    |                                              | Payment status;  |
+    +----------------------------------------------+------------------+
+    |                                              | Charges,         |
+    |                                              | discounts,       |
+    |                                              | credits;         |
+    +----------------------------------------------+------------------+
+    |                                              | Billing date;    |
+    +----------------------------------------------+------------------+
+    |                                              | Usage for        |
+    |                                              | billing period;  |
+    +----------------------------------------------+------------------+
+    |                                              | Payment date;    |
+    +----------------------------------------------+------------------+
+    |                                              | Invoice number;  |
+    +----------------------------------------------+------------------+
+    | energy:electricity.servicepoints.basic:read  | *Electricity     |
+    |                                              | connection*      |
+    +----------------------------------------------+------------------+
+    |                                              | National Meter   |
+    |                                              | Identifier       |
+    |                                              | (NMI);           |
+    +----------------------------------------------+------------------+
+    |                                              | Customer type;   |
+    +----------------------------------------------+------------------+
+    |                                              | Connection point |
+    |                                              | details;         |
+    +----------------------------------------------+------------------+
+    | energy:electricity.servicepoints.detail:read | *Electricity     |
+    |                                              | meter*           |
+    +----------------------------------------------+------------------+
+    |                                              | Supply address;  |
+    +----------------------------------------------+------------------+
+    |                                              | Meter details;   |
+    +----------------------------------------------+------------------+
+    |                                              | Associated       |
+    |                                              | service          |
+    |                                              | providers;       |
+    +----------------------------------------------+------------------+
+    | energy:electricity.der:read                  | *Energy          |
+    |                                              | generation and   |
+    |                                              | storage*         |
+    +----------------------------------------------+------------------+
+    |                                              | Generation       |
+    |                                              | information;     |
+    +----------------------------------------------+------------------+
+    |                                              | Generation or    |
+    |                                              | storage device   |
+    |                                              | type;            |
+    +----------------------------------------------+------------------+
+    |                                              | Device           |
+    |                                              | characteristics; |
+    +----------------------------------------------+------------------+
+    |                                              | Devices that can |
+    |                                              | operate without  |
+    |                                              | the grid;        |
+    +----------------------------------------------+------------------+
+    |                                              | Energy           |
+    |                                              | conversion       |
+    |                                              | information;     |
+    +----------------------------------------------+------------------+
+    | energy:electricity.usage:read                | *Electricity     |
+    |                                              | usage*           |
+    +----------------------------------------------+------------------+
+    |                                              | Usage;           |
+    +----------------------------------------------+------------------+
+    |                                              | Meter details;   |
+    +----------------------------------------------+------------------+
+
+                                  Table 1
+
+3.1.  Overlapping Scope Optimisation
+
+   In certain situations multiple technical scopes overlap which can
+   lead to confusion by the User granting permission for the Consumer
+   (which may be themselves or an Entity they represent).
+
+   Data Cluster Language presentation SHALL be collapsed for the
+   following pairs of scope values:
+
+    +==============================================+==================+
+    | scope pairing                                | Data Set         |
+    |                                              | Language         |
+    +==============================================+==================+
+    | energy:accounts.basic:read and               | *Account and     |
+    |                                              | plan details*    |
+    +----------------------------------------------+------------------+
+    | energy:accounts.detail:read                  | Account and plan |
+    |                                              | information;     |
+    +----------------------------------------------+------------------+
+    |                                              | Account type;    |
+    +----------------------------------------------+------------------+
+    |                                              | Fees, features,  |
+    |                                              | rates, and       |
+    |                                              | discounts;       |
+    +----------------------------------------------+------------------+
+    |                                              | Additional       |
+    |                                              | account users;   |
+    +----------------------------------------------+------------------+
+    | energy:electricity.servicepoints.basic:read  | *Electricity     |
+    | and                                          | connection and   |
+    |                                              | meter*           |
+    +----------------------------------------------+------------------+
+    | energy:electricity.servicepoints.detail:read | National Meter   |
+    |                                              | Identifier       |
+    |                                              | (NMI);           |
+    +----------------------------------------------+------------------+
+    |                                              | Supply address;  |
+    +----------------------------------------------+------------------+
+    |                                              | Customer type;   |
+    +----------------------------------------------+------------------+
+    |                                              | Connection point |
+    |                                              | details;         |
+    +----------------------------------------------+------------------+
+    |                                              | Meter details;   |
+    +----------------------------------------------+------------------+
+    |                                              | Associated       |
+    |                                              | service          |
+    |                                              | providers;       |
+    +----------------------------------------------+------------------+
+
+                                  Table 2
+
+4.  Providers
+
+   Providers are REQUIRED to deliver a number of authorisation and
+   resource server capabilities.
+
+4.1.  Authorisation Server
+
+   In addition to other provisions incorporated within the relevent
+   ecosystem set, the Provider authorisation server SHALL:
+
+   1.  Support the scope parameters outlined within [Authorisation
+       Scopes];
+
+4.2.  Resource Server
+
+   The Provider SHALL deliver the following authorisation enabled
+   endpoints, in accordance with [DATARIGHTPLUS-REDOCLY]:
+
+   +====================================+============================================+========================================+===+
+   |Resource Server Endpoint            |Authorisation Scope                         |OpenAPI Operation ID                    |x-v|
+   +====================================+============================================+========================================+===+
+   |GET /energy/accounts                |energy:accounts.basic:read                  |listEnergyAccounts                      |2  |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |GET /energy/accounts/{accountId}    |energy:accounts.detail:read                 |getEnergyAccountDetail                  |2  |
+   |                                    |                                            |                                        |and|
+   |                                    |                                            |                                        |3  |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |GET /energy/                        |energy:accounts.concessions:read            |getEnergyAccountConcessions             |1  |
+   |accounts/{accountId}/concessions    |                                            |                                        |   |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |GET /energy/accounts/balances       |energy:billing:read                         |getEnergyAccountBalances                |1  |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |GET /energy/                        |energy:billing:read                         |getEnergyAccountBalance                 |1  |
+   |accounts/{accountId}/balance        |                                            |                                        |   |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |POST /banking/accounts/balances     |energy:billing:read                         |listBalancesSpecificEnergyAccounts      |1  |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |GET /energy/                        |energy:accounts.paymentschedule:read        |getEnergyAccountPaymentSchedule         |1  |
+   |accounts/{accountId}/payment-       |                                            |                                        |   |
+   |schedule                            |                                            |                                        |   |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |GET /energy/                        |energy:billing:read                         |listEnergyAccountInvoices               |1  |
+   |accounts/{accountId}/invoices       |                                            |                                        |   |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |GET /energy/accounts/invoices       |energy:billing:read                         |listEnergyInvoices                      |1  |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |POST /energy/accounts/invoices      |energy:billing:read                         |listEnergyInvoicesSpecificAccounts      |1  |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |GET /energy/                        |energy:billing:read                         |getEnergyAccountBilling                 |1  |
+   |accounts/{accountId}/billing        |                                            |                                        |   |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |GET /energy/accounts/billing        |energy:billing:read                         |getEnergyAccountBillingBulk             |1  |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |POST /energy/accounts/billing       |energy:billing:read                         |listBillingSpecificEnergyAccounts       |1  |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |GET /energy/electricity/            |energy:electricity.usage:read               |getElectricityServicePointUsage         |1  |
+   |servicepoints/{servicePointId}/usage|                                            |                                        |   |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |GET                                 |energy:electricity.usage:read               |getElectricityServicePointUsageBulk     |1  |
+   |/energy/electricity/servicepoints/  |                                            |                                        |   |
+   |usage                               |                                            |                                        |   |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |POST                                |energy:electricity.usage:read               |getElectricityUsageSpecificServicePoints|1  |
+   |/energy/electricity/servicepoints/  |                                            |                                        |   |
+   |usage                               |                                            |                                        |   |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |GET /energy/electricity/            |energy:electricity.servicepoints.basic:read |listElectricityServicePoints            |1  |
+   |servicepoints                       |                                            |                                        |   |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |GET /energy/electricity/            |energy:electricity.servicepoints.detail:read|getElectricityServicePointDetail        |1  |
+   |servicepoints/{servicePointId}      |                                            |                                        |   |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |GET                                 |energy:electricity.der.basic:read           |getElectricityServicePointDERBulk       |1  |
+   |/energy/electricity/servicepoints/  |                                            |                                        |   |
+   |der                                 |                                            |                                        |   |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   |POST                                |energy:electricity.der.basic:read           |getElectricityDERSpecificServicePoints  |1  |
+   |/energy/electricity/servicepoints/  |                                            |                                        |   |
+   |der                                 |                                            |                                        |   |
+   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+
+                                  Table 3
+
+   In addition, the Provider MAY deliver the following unauthenticated
+   and generally available endpoints, in accordance with
+   [DATARIGHTPLUS-REDOCLY]:
+
+        +============================+======================+=====+
+        | Resource Server Endpoint   | OpenAPI Operation ID | x-v |
+        +============================+======================+=====+
+        | GET /energy/plans          | listEnergyPlans      | 1   |
+        +----------------------------+----------------------+-----+
+        | GET /energy/plans/{planId} | getEnergyPlanDetail  | 1   |
+        +----------------------------+----------------------+-----+
+
+                                  Table 4
+
+5.  Initiators
+
+   This specification contains no additional provisions for Initiators.
+
+6.  Electricity Authority
+
+   The Electricity Authority SHALL deliver the electricity asset and
+   usage information to the Provider.
+
+6.1.  Authorisation Server
+
+   The Electricity Authority SHALL authorise Providers using existing
+   information security protocols.  The specific details of this are
+   outside the scope of this document.
+
+6.2.  Resource Server
+
+   The Electricity Authority SHALL make the following restricted
+   endpoints available to Providers, using existing authentication and
+   authorisation channels, and in accordance with
+   [DATARIGHTPLUS-REDOCLY]:
+
+   +============================================+================================================+===+
+   |Resource Server Endpoint                    |OpenAPI Operation ID                            |x-v|
+   +============================================+================================================+===+
+   |GET /secondary/energy/electricity/          |getElectricalAuthorityServicePointUsage         |1  |
+   |servicepoints/{nationalMeteringId}/usage    |                                                |   |
+   +--------------------------------------------+------------------------------------------------+---+
+   |POST                                        |getElectricalAuthorityUsageSpecificServicePoints|1  |
+   |/secondary/energy/electricity/servicepoints/|                                                |   |
+   |usage                                       |                                                |   |
+   +--------------------------------------------+------------------------------------------------+---+
+   |POST /secondary/energy/electricity/         |getElectricalAuthorityServicePoints             |1  |
+   |servicepoints                               |                                                |   |
+   +--------------------------------------------+------------------------------------------------+---+
+   |GET /secondary/energy/electricity/          |getElectricalAuthorityServicePointDetail        |1  |
+   |servicepoints/{nationalMeteringId}          |                                                |   |
+   +--------------------------------------------+------------------------------------------------+---+
+   |GET /secondary/energy/electricity/          |getElectricalAuthorityServicePointDER           |1  |
+   |servicepoints/{nationalMeteringId}/der      |                                                |   |
+   +--------------------------------------------+------------------------------------------------+---+
+   |POST /secondary/energy/electricity/         |getElectricalAuthorityDERSpecificServicePoints  |1  |
+   |servicepoints                               |                                                |   |
+   +--------------------------------------------+------------------------------------------------+---+
+
+                                  Table 5
+
+7.  Electricity Plan Website
+
+   The Electricity Plan Website SHALL deliver the following
+   unauthenticated and generally available endpoints, in accordance with
+   [DATARIGHTPLUS-REDOCLY]:
+
+        +============================+======================+=====+
+        | Resource Server Endpoint   | OpenAPI Operation ID | x-v |
+        +============================+======================+=====+
+        | GET /energy/plans          | listEnergyPlans      | 1   |
+        +----------------------------+----------------------+-----+
+        | GET /energy/plans/{planId} | getEnergyPlanDetail  | 1   |
+        +----------------------------+----------------------+-----+
+
+                                  Table 6
+
+8.  Acknowledgement
+
+   The following people contributed to this document:
+
+   *  Stuart Low (Biza.io) - Editor
+
+   We acknowledge the contribution to the [CDS] of the following
+   individuals: - James Bligh (Data Standards Body) - Lead Architect for
+   the Consumer Data Right - Mark Verstege (Data Standards Body) - Lead
+   Architect, Banking & Information Security for the Consumer Data Right
+   - Ivan Hosgood (formerly Data Standards Body & ACCC) - Solutions
+   Architect
+
+9.  Normative References
+
+   [CDS]      Data Standards Body (Treasury), "Consumer Data Standards
+              (CDS)", <https://consumerdatastandardsaustralia.github.io/
+              standards>.
+
+   [DATARIGHTPLUS-REDOCLY]
+              Low, S., Kolera, B., and W. Cai, "DataRight+: Redocly",
+              <https://datarightplus.github.io/datarightplus-redocly/>.
+
+   [DATARIGHTPLUS-ROSETTA]
+              Low, S., "DataRight+ Rosetta Stone",
+              <https://datarightplus.github.io/datarightplus-specs/main/
+              datarightplus-rosetta.html>.
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
+
+Author's Address
+
+   Stuart Low
+   Biza.io
+   Email: stuart@biza.io
