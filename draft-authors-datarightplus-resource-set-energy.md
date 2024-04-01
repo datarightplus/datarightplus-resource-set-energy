@@ -8,7 +8,7 @@ submissionType = "independent"
 name = "Internet-Draft"
 value = "draft-authors-datarightplus-resource-set-energy-latest"
 stream = "independent"
-status = "informational"
+status = "experimental"
 
 date = 2024-03-28T00:00:00Z
 
@@ -24,7 +24,7 @@ email = "stuart@biza.io"
 
 .# Abstract
 
-This is the resource set profile outlining the energy sector related endpoints.
+This is the resource set profile outlining the energy sector related endpoints. In addition to outlining Initiator and Provider provisions it also specifies requirements for the Energy Authority (responsible for electricity assets and usage) and Energy Plan Website (responsible for retail electricity plan information).
 
 .# Notational Conventions
 
@@ -93,7 +93,7 @@ In certain situations multiple technical scopes overlap which can lead to confus
 
 Data Cluster Language presentation **SHALL** be collapsed for the following pairs of `scope` values:
 
-| `scope` pairing                                     | Data Set Language                     |
+| `scope` pairing                                   | Data Set Language                     |
 |---------------------------------------------------|---------------------------------------|
 | `energy:accounts.basic:read` and                  | **Account and plan details**          |
 | `energy:accounts.detail:read`                     | Account and plan information;         |
@@ -145,7 +145,7 @@ The Provider **SHALL** deliver the following authorisation enabled endpoints, in
 | `GET /energy/electricity/servicepoints/der`                    | `energy:electricity.der.basic:read`            | `getElectricityServicePointDERBulk`        | `1`         |
 | `POST /energy/electricity/servicepoints/der`                   | `energy:electricity.der.basic:read`            | `getElectricityDERSpecificServicePoints`   | `1`         |
 
-In addition the Provider **MAY** deliver the following unauthenticated and generally available endpoints, in accordance with [@!DATARIGHTPLUS-REDOCLY]:
+In addition, the Provider **MAY** deliver the following unauthenticated and generally available endpoints, in accordance with [@!DATARIGHTPLUS-REDOCLY]:
 
 | Resource Server Endpoint     | OpenAPI Operation ID  | `x-v` |
 |------------------------------|-----------------------|-------|
@@ -155,6 +155,36 @@ In addition the Provider **MAY** deliver the following unauthenticated and gener
 # Initiators
 
 This specification contains no additional provisions for Initiators.
+
+# Electricity Authority
+
+The Electricity Authority **SHALL** deliver the electricity asset and usage information to the Provider.
+
+## Authorisation Server
+
+The Electricity Authority **SHALL** authorise Providers using existing information security protocols. The specific details of this are outside the scope of this document.
+
+## Resource Server
+
+The Electricity Authority **SHALL** make the following restricted endpoints available to Providers, using existing authentication and authorisation channels, and in accordance with [@!DATARIGHTPLUS-REDOCLY]:
+
+| Resource Server Endpoint                                                     | OpenAPI Operation ID                               | `x-v` |
+|------------------------------------------------------------------------------|----------------------------------------------------|-------|
+| `GET /secondary/energy/electricity/servicepoints/{nationalMeteringId}/usage` | `getElectricalAuthorityServicePointUsage`          | `1`   |
+| `POST /secondary/energy/electricity/servicepoints/usage`                     | `getElectricalAuthorityUsageSpecificServicePoints` | `1`   |
+| `POST /secondary/energy/electricity/servicepoints`                           | `getElectricalAuthorityServicePoints`              | `1`   |
+| `GET /secondary/energy/electricity/servicepoints/{nationalMeteringId}`       | `getElectricalAuthorityServicePointDetail`         | `1`   |
+| `GET /secondary/energy/electricity/servicepoints/{nationalMeteringId}/der`   | `getElectricalAuthorityServicePointDER`            | `1`   |
+| `POST /secondary/energy/electricity/servicepoints`                           | `getElectricalAuthorityDERSpecificServicePoints`   | `1`   |
+
+# Electricity Plan Website
+
+The Electricity Plan Website **SHALL** deliver the following unauthenticated and generally available endpoints, in accordance with [@!DATARIGHTPLUS-REDOCLY]:
+
+| Resource Server Endpoint     | OpenAPI Operation ID  | `x-v` |
+|------------------------------|-----------------------|-------|
+| `GET /energy/plans`          | `listEnergyPlans`     | `1`   |
+| `GET /energy/plans/{planId}` | `getEnergyPlanDetail` | `1`   |
 
 # Acknowledgement
 
