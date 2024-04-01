@@ -557,8 +557,8 @@ Table of Contents
 
    [DATARIGHTPLUS-ROSETTA]
               Low, S., "DataRight+ Rosetta Stone",
-              <https://datarightplus.github.io/datarightplus-specs/main/
-              datarightplus-rosetta.html>.
+              <https://datarightplus.github.io/datarightplus-rosetta/
+              draft-authors-datarightplus-rosetta.html>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
