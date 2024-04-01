@@ -6,7 +6,7 @@ submissionType = "independent"
 
 [seriesInfo]
 name = "Internet-Draft"
-value = "draft-authors-datarightplus-resource-set-energy-latest"
+value = "draft-authors-datarightplus-resource-set-energy-01"
 stream = "independent"
 status = "experimental"
 
@@ -34,7 +34,7 @@ The keywords "**REQUIRED**", "**SHALL**", "**SHALL NOT**", "**SHOULD**", "**SHOU
 
 # Scope
 
-The scope of this document is intended to be limited to the resource server endpoints related to energy, and their associated authorisation contexts.
+The scope of this document is intended to be limited to the resource server endpoints related to energy, their associated authorisation contexts, the services provided by the Energy Authority and Energy Plan Website.
 
 # Terminology
 
@@ -42,7 +42,7 @@ This specification utilises the various terms outlined within [@!DATARIGHTPLUS-R
 
 # Providers
 
-Providers are **REQUIRED** to deliver a number of authorisation and resource server capabilities.
+Providers which manage energy sector information are expected to deliver a number of resource server end points.
 
 ## Authorisation Server
 
@@ -52,9 +52,7 @@ In addition to other provisions incorporated within the relevant ecosystem set, 
 
 ### Authorisation Scopes
 
-Possible `scope` values to be provided by the Initiator to the Provider are documented below. In addition, this specification also outlines the title and a simple description of the language to use to describe the data set referred to as Data Set Language.
-
-Providers and Initiators **SHALL** utilise the prescribed authorisation scopes and Data Set Language when seeking Consumer authorisation:
+The Provider authorisation server **SHALL** utilise the following Data Set Language when seeking Consumer authorisation from a User for specific `scope` values:
 
 | `scope` value                                  | Data Set Language                          |
 |------------------------------------------------|--------------------------------------------|
@@ -99,9 +97,7 @@ Providers and Initiators **SHALL** utilise the prescribed authorisation scopes a
 
 #### Overlapping Scope Optimisation
 
-In certain situations multiple technical scopes overlap which can lead to confusion by the User granting permission for the Consumer (which may be themselves or an Entity they represent).
-
-Data Cluster Language presentation **SHALL** be collapsed for the following pairs of `scope` values:
+Alternative Data Cluster Language **SHALL** be used when pairs of `scope` value are used as follows:
 
 | `scope` pairing                                   | Data Set Language                     |
 |---------------------------------------------------|---------------------------------------|
@@ -120,41 +116,83 @@ Data Cluster Language presentation **SHALL** be collapsed for the following pair
 
 ## Resource Server
 
-The Provider **SHALL** make available, as described further in [@!DATARIGHTPLUS-REDOCLY-ID1], the following bearer token enabled endpoints:
+The Provider **SHALL** make available, as described further in [@!DATARIGHTPLUS-REDOCLY-ID1] endpoints, the following endpoints where the token is granted the `energy:accounts.basic:read` scope value:
 
-| Resource Server Endpoint                                       | Authorisation Scope                            | Valid `x-v` |
-|----------------------------------------------------------------|------------------------------------------------|-------------|
-| `GET /energy/accounts`                                         | `energy:accounts.basic:read`                   | `2`         |
-| `GET /energy/accounts/{accountId}`                             | `energy:accounts.detail:read`                  | `2`, `3`    |
-| `GET /energy/accounts/{accountId}/concessions`                 | `energy:accounts.concessions:read`             | `1`         |
-| `GET /energy/accounts/balances`                                | `energy:billing:read`                          | `1`         |
-| `GET /energy/accounts/{accountId}/balance`                     | `energy:billing:read`                          | `1`         |
-| `POST /banking/accounts/balances`                              | `energy:billing:read`                          | `1`         |
-| `GET /energy/accounts/{accountId}/payment-schedule`            | `energy:accounts.paymentschedule:read`         | `1`         |
-| `GET /energy/accounts/{accountId}/invoices`                    | `energy:billing:read`                          | `1`         |
-| `GET /energy/accounts/invoices`                                | `energy:billing:read`                          | `1`         |
-| `POST /energy/accounts/invoices`                               | `energy:billing:read`                          | `1`         |
-| `GET /energy/accounts/{accountId}/billing`                     | `energy:billing:read`                          | `1`         |
-| `GET /energy/accounts/billing`                                 | `energy:billing:read`                          | `1`         |
-| `POST /energy/accounts/billing`                                | `energy:billing:read`                          | `1`         |
-| `GET /energy/electricity/servicepoints/{servicePointId}/usage` | `energy:electricity.usage:read`                | `1`         |
-| `GET /energy/electricity/servicepoints/usage`                  | `energy:electricity.usage:read`                | `1`         |
-| `POST /energy/electricity/servicepoints/usage`                 | `energy:electricity.usage:read`                | `1`         |
-| `GET /energy/electricity/servicepoints`                        | `energy:electricity.servicepoints.basic:read`  | `1`         |
-| `GET /energy/electricity/servicepoints/{servicePointId}`       | `energy:electricity.servicepoints.detail:read` | `1`         |
-| `GET /energy/electricity/servicepoints/der`                    | `energy:electricity.der.basic:read`            | `1`         |
-| `POST /energy/electricity/servicepoints/der`                   | `energy:electricity.der.basic:read`            | `1`         |
+| Resource Server Endpoint                                       | Valid `x-v` |
+|----------------------------------------------------------------|-------------|
+| `GET /energy/accounts`                                         | `2`         |
+
+The Provider **SHALL** make available, as described further in [@!DATARIGHTPLUS-REDOCLY-ID1] endpoints, the following endpoints where the token is granted the `energy:accounts.detail:read` scope value:
+
+| Resource Server Endpoint                                       | Valid `x-v` |
+|----------------------------------------------------------------|-------------|
+| `GET /energy/accounts/{accountId}`                             | `2`, `3`    |
+
+The Provider **SHALL** make available, as described further in [@!DATARIGHTPLUS-REDOCLY-ID1] endpoints, the following endpoints where the token is granted the `energy:accounts.concessions:read` scope value:
+
+| Resource Server Endpoint                                       | Valid `x-v` |
+|----------------------------------------------------------------|-------------|
+| `GET /energy/accounts/{accountId}/concessions`                 | `1`         |
+
+The Provider **SHALL** make available, as described further in [@!DATARIGHTPLUS-REDOCLY-ID1] endpoints, the following endpoints where the token is granted the `energy:accounts.paymentschedule:read` scope value:
+
+| Resource Server Endpoint                                       | Valid `x-v` |
+|----------------------------------------------------------------|-------------|
+| `GET /energy/accounts/{accountId}/payment-schedule`            | `1`         |
+
+The Provider **SHALL** make available, as described further in [@!DATARIGHTPLUS-REDOCLY-ID1] endpoints, the following endpoints where the token is granted the `energy:billing:read` scope value:
+
+| Resource Server Endpoint                                       | Valid `x-v` |
+|----------------------------------------------------------------|-------------|
+| `GET /energy/accounts/balances`                                | `1`         |
+| `GET /energy/accounts/{accountId}/balance`                     | `1`         |
+| `POST /banking/accounts/balances`                              | `1`         |
+| `GET /energy/accounts/{accountId}/invoices`                    | `1`         |
+| `GET /energy/accounts/invoices`                                | `1`         |
+| `POST /energy/accounts/invoices`                               | `1`         |
+| `GET /energy/accounts/{accountId}/billing`                     | `1`         |
+| `GET /energy/accounts/billing`                                 | `1`         |
+| `POST /energy/accounts/billing`                                | `1`         |
+
+
+The Provider **SHALL** make available, as described further in [@!DATARIGHTPLUS-REDOCLY-ID1] endpoints, the following endpoints where the token is granted the `energy:electricity.usage:read` scope value:
+
+| Resource Server Endpoint                                       | Valid `x-v` |
+|----------------------------------------------------------------|-------------|
+| `GET /energy/electricity/servicepoints/{servicePointId}/usage` | `1`         |
+| `GET /energy/electricity/servicepoints/usage`                  | `1`         |
+| `POST /energy/electricity/servicepoints/usage`                 | `1`         |
+
+The Provider **SHALL** make available, as described further in [@!DATARIGHTPLUS-REDOCLY-ID1] endpoints, the following endpoints where the token is granted the `energy:electricity.servicepoints.basic:read` scope value:
+
+| Resource Server Endpoint                                       | Valid `x-v` |
+|----------------------------------------------------------------|-------------|
+| `GET /energy/electricity/servicepoints`                        | `1`         |
+
+
+The Provider **SHALL** make available, as described further in [@!DATARIGHTPLUS-REDOCLY-ID1] endpoints, the following endpoints where the token is granted the `energy:electricity.servicepoints.detail:read` scope value:
+
+| Resource Server Endpoint                                       | Valid `x-v` |
+|----------------------------------------------------------------|-------------|
+| `GET /energy/electricity/servicepoints/{servicePointId}`       | `1`         |
+
+The Provider **SHALL** make available, as described further in [@!DATARIGHTPLUS-REDOCLY-ID1] endpoints, the following endpoints where the token is granted the `energy:electricity.der.basic:read` scope value:
+
+| Resource Server Endpoint                                       | Valid `x-v` |
+|----------------------------------------------------------------|-------------|
+| `GET /energy/electricity/servicepoints/der`                    | `1`         |
+| `POST /energy/electricity/servicepoints/der`                   | `1`         |
 
 In addition, the Provider **MAY** deliver the following unauthenticated and generally available endpoints, in accordance with [@!DATARIGHTPLUS-REDOCLY-ID1]:
 
-| Resource Server Endpoint     | OpenAPI Operation ID  | `x-v` |
-|------------------------------|-----------------------|-------|
-| `GET /energy/plans`          | `listEnergyPlans`     | `1`   |
-| `GET /energy/plans/{planId}` | `getEnergyPlanDetail` | `1`   |
+| Resource Server Endpoint     | `x-v` |
+|------------------------------|-------|
+| `GET /energy/plans`          | `1`   |
+| `GET /energy/plans/{planId}` | `1`   |
 
 ### Electricity Authority Resource Bridge
 
-In order to deliver information requested by the Initiator but stored and mastered from the Electricity Authority, the Provider **SHALL** provide a back-to-back endpoint bridge mapped as follows:
+In order to deliver information requested by the Initiator the Provider **SHALL** provide a back-to-back relay of resource server requests between the Provider and Electricity Authority as follows:
 
 | Provider Resource Server Endpoint                              | Electricity Authority Resource Server Endpoint                           |
 |----------------------------------------------------------------|--------------------------------------------------------------------------|
@@ -197,10 +235,10 @@ The Electricity Authority **SHALL** make the following restricted endpoints avai
 
 The Electricity Plan Website **SHALL** deliver the following unauthenticated and generally available endpoints, in accordance with [@!DATARIGHTPLUS-REDOCLY-ID1]:
 
-| Resource Server Endpoint     | OpenAPI Operation ID  | Valid `x-v` |
-|------------------------------|-----------------------|-------------|
-| `GET /energy/plans`          | `listEnergyPlans`     | `1`         |
-| `GET /energy/plans/{planId}` | `getEnergyPlanDetail` | `1`         |
+| Resource Server Endpoint     | Valid `x-v` |
+|------------------------------|-------------|
+| `GET /energy/plans`          | `1`         |
+| `GET /energy/plans/{planId}` | `1`         |
 
 # Acknowledgement
 
