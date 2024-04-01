@@ -6,7 +6,7 @@ submissionType = "independent"
 
 [seriesInfo]
 name = "Internet-Draft"
-value = "draft-authors-datarightplus-resource-set-energy-latest"
+value = "draft-authors-datarightplus-resource-set-energy-01"
 stream = "independent"
 status = "experimental"
 
