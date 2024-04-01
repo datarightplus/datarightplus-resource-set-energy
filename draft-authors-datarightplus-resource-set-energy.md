@@ -24,7 +24,7 @@ email = "stuart@biza.io"
 
 .# Abstract
 
-This is the resource set profile outlining the energy sector related endpoints. In addition to outlining Initiator and Provider provisions it also specifies requirements for the Energy Authority (responsible for electricity assets and usage) and Energy Plan Website (responsible for retail electricity plan information).
+This is the resource set profile outlining the energy sector related endpoints. In addition to outlining Initiator and Provider provisions it also specifies requirements for the Energy Authority (electricity assets and usage) and Energy Plan Website (retail electricity plan information).
 
 .# Notational Conventions
 
@@ -40,9 +40,19 @@ The scope of this document is intended to be limited to the resource server endp
 
 This specification utilises the various terms outlined within [@!DATARIGHTPLUS-ROSETTA].
 
-# Authorisation Scopes
+# Providers
 
-Technical authorisation scopes are defined between Provider and Initiator and permit access to resource server endpoints. In addition, this specification also outlines the title and a simple description of the language to use to describe the data set referred to as Data Set Language.
+Providers are **REQUIRED** to deliver a number of authorisation and resource server capabilities.
+
+## Authorisation Server
+
+In addition to other provisions incorporated within the relevant ecosystem set, the Provider authorisation server **SHALL**:
+
+1. Support the [@!RFC6749] `scope` parameter with possible values outlined within [Authorisation Scopes](#name-authorisation-scopes);
+
+### Authorisation Scopes
+
+Possible `scope` values to be provided by the Initiator to the Provider are documented below. In addition, this specification also outlines the title and a simple description of the language to use to describe the data set referred to as Data Set Language.
 
 Providers and Initiators **SHALL** utilise the prescribed authorisation scopes and Data Set Language when seeking Consumer authorisation:
 
@@ -87,7 +97,7 @@ Providers and Initiators **SHALL** utilise the prescribed authorisation scopes a
 |                                                | Usage;                                     |
 |                                                | Meter details;                             |
 
-## Overlapping Scope Optimisation
+#### Overlapping Scope Optimisation
 
 In certain situations multiple technical scopes overlap which can lead to confusion by the User granting permission for the Consumer (which may be themselves or an Entity they represent).
 
@@ -107,16 +117,6 @@ Data Cluster Language presentation **SHALL** be collapsed for the following pair
 |                                                   | Connection point details;             |
 |                                                   | Meter details;                        |
 |                                                   | Associated service providers;         |
-
-# Providers
-
-Providers are **REQUIRED** to deliver a number of authorisation and resource server capabilities.
-
-## Authorisation Server
-
-In addition to other provisions incorporated within the relevent ecosystem set, the Provider authorisation server **SHALL**:
-
-1. Support the `scope` parameters outlined within [Authorisation Scopes];
 
 ## Resource Server
 
@@ -154,7 +154,7 @@ In addition, the Provider **MAY** deliver the following unauthenticated and gene
 
 # Initiators
 
-This specification contains no additional provisions for Initiators.
+Initiators **SHALL** describe the requested `scope` values using the same Data Set Language as Providers, as outlined in [Authorisation Scopes](#name-authorisation-scopes).
 
 # Electricity Authority
 
@@ -193,6 +193,7 @@ The following people contributed to this document:
 - Stuart Low (Biza.io) - Editor
 
 We acknowledge the contribution to the [@!CDS] of the following individuals:
+
 - James Bligh (Data Standards Body) - Lead Architect for the Consumer Data Right
 - Mark Verstege (Data Standards Body) - Lead Architect, Banking & Information Security for the Consumer Data Right
 - Ivan Hosgood (formerly Data Standards Body & ACCC) - Solutions Architect
@@ -206,13 +207,8 @@ We acknowledge the contribution to the [@!CDS] of the following individuals:
 
 <reference anchor="CDS" target="https://consumerdatastandardsaustralia.github.io/standards"><front><title>Consumer Data Standards (CDS)</title><author><organization>Data Standards Body (Treasury)</organization></author></front> </reference>
 
-<reference anchor="DATARIGHTPLUS-INFOSEC-SHARING-V1" target="https://datarightplus.github.io/datarightplus-specs/main/datarightplus-infosec-sharing-v1.html"> <front><title>CDR: Sharing Arrangement V1</title><author initials="S." surname="Low" fullname="Stuart Low"><organization>Biza.io</organization></author></front> </reference>
+<reference anchor="RFC6749" target="https://datatracker.ietf.org/doc/html/rfc6749"> <front> <title>The OAuth 2.0 Authorization Framework</title><author fullname="D. Hardt"> <organization>Microsoft</organization> </author><date month="Oct" year="2012"/></front> </reference>
 
-<reference anchor="OIDC-Core" target="http://openid.net/specs/openid-connect-core-1_0.html"> <front> <title>OpenID Connect Core 1.0 incorporating errata set 1</title> <author initials="N." surname="Sakimura" fullname="Nat Sakimura"></author></front></reference>
-
-<reference anchor="TDIF" target="https://www.digitalidentity.gov.au"><front><title>Trusted Digital Identity Framework (
-TDIF)</title><author><organization>Commonwealth of
-Australia (Digital Transformation Agency)</organization></author></front> </reference>
 
 
 
