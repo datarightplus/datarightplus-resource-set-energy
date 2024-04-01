@@ -74,8 +74,9 @@ Table of Contents
 1.  Scope
 
    The scope of this document is intended to be limited to the resource
-   server endpoints related to energy, and their associated
-   authorisation contexts.
+   server endpoints related to energy, their associated authorisation
+   contexts, the services provided by the Energy Authority and Energy
+   Plan Website.
 
 2.  Terminology
 
@@ -84,8 +85,8 @@ Table of Contents
 
 3.  Providers
 
-   Providers are REQUIRED to deliver a number of authorisation and
-   resource server capabilities.
+   Providers which manage energy sector information are expected to
+   deliver a number of resource server end points.
 
 3.1.  Authorisation Server
 
@@ -98,13 +99,9 @@ Table of Contents
 
 3.1.1.  Authorisation Scopes
 
-   Possible scope values to be provided by the Initiator to the Provider
-   are documented below.  In addition, this specification also outlines
-   the title and a simple description of the language to use to describe
-   the data set referred to as Data Set Language.
-
-   Providers and Initiators SHALL utilise the prescribed authorisation
-   scopes and Data Set Language when seeking Consumer authorisation:
+   The Provider authorisation server SHALL utilise the following Data
+   Set Language when seeking Consumer authorisation from a User for
+   specific scope values:
 
     +==============================================+==================+
     | scope value                                  | Data Set         |
@@ -226,12 +223,8 @@ Table of Contents
 
 3.1.1.1.  Overlapping Scope Optimisation
 
-   In certain situations multiple technical scopes overlap which can
-   lead to confusion by the User granting permission for the Consumer
-   (which may be themselves or an Entity they represent).
-
-   Data Cluster Language presentation SHALL be collapsed for the
-   following pairs of scope values:
+   Alternative Data Cluster Language SHALL be used when pairs of scope
+   value are used as follows:
 
     +==============================================+==================+
     | scope pairing                                | Data Set         |
@@ -279,92 +272,163 @@ Table of Contents
 3.2.  Resource Server
 
    The Provider SHALL make available, as described further in
-   [DATARIGHTPLUS-REDOCLY-ID1], the following bearer token enabled
-   endpoints:
+   [DATARIGHTPLUS-REDOCLY-ID1] endpoints, the following endpoints where
+   the token is granted the energy:accounts.basic:read scope value:
 
-   +====================================+============================================+=====+
-   |Resource Server Endpoint            |Authorisation Scope                         |Valid|
-   |                                    |                                            |x-v  |
-   +====================================+============================================+=====+
-   |GET /energy/accounts                |energy:accounts.basic:read                  |2    |
-   +------------------------------------+--------------------------------------------+-----+
-   |GET /energy/accounts/{accountId}    |energy:accounts.detail:read                 |2, 3 |
-   +------------------------------------+--------------------------------------------+-----+
-   |GET /energy/                        |energy:accounts.concessions:read            |1    |
-   |accounts/{accountId}/concessions    |                                            |     |
-   +------------------------------------+--------------------------------------------+-----+
-   |GET /energy/accounts/balances       |energy:billing:read                         |1    |
-   +------------------------------------+--------------------------------------------+-----+
-   |GET /energy/                        |energy:billing:read                         |1    |
-   |accounts/{accountId}/balance        |                                            |     |
-   +------------------------------------+--------------------------------------------+-----+
-   |POST /banking/accounts/balances     |energy:billing:read                         |1    |
-   +------------------------------------+--------------------------------------------+-----+
-   |GET /energy/                        |energy:accounts.paymentschedule:read        |1    |
-   |accounts/{accountId}/payment-       |                                            |     |
-   |schedule                            |                                            |     |
-   +------------------------------------+--------------------------------------------+-----+
-   |GET /energy/                        |energy:billing:read                         |1    |
-   |accounts/{accountId}/invoices       |                                            |     |
-   +------------------------------------+--------------------------------------------+-----+
-   |GET /energy/accounts/invoices       |energy:billing:read                         |1    |
-   +------------------------------------+--------------------------------------------+-----+
-   |POST /energy/accounts/invoices      |energy:billing:read                         |1    |
-   +------------------------------------+--------------------------------------------+-----+
-   |GET /energy/                        |energy:billing:read                         |1    |
-   |accounts/{accountId}/billing        |                                            |     |
-   +------------------------------------+--------------------------------------------+-----+
-   |GET /energy/accounts/billing        |energy:billing:read                         |1    |
-   +------------------------------------+--------------------------------------------+-----+
-   |POST /energy/accounts/billing       |energy:billing:read                         |1    |
-   +------------------------------------+--------------------------------------------+-----+
-   |GET /energy/electricity/            |energy:electricity.usage:read               |1    |
-   |servicepoints/{servicePointId}/usage|                                            |     |
-   +------------------------------------+--------------------------------------------+-----+
-   |GET                                 |energy:electricity.usage:read               |1    |
-   |/energy/electricity/servicepoints/  |                                            |     |
-   |usage                               |                                            |     |
-   +------------------------------------+--------------------------------------------+-----+
-   |POST                                |energy:electricity.usage:read               |1    |
-   |/energy/electricity/servicepoints/  |                                            |     |
-   |usage                               |                                            |     |
-   +------------------------------------+--------------------------------------------+-----+
-   |GET /energy/electricity/            |energy:electricity.servicepoints.basic:read |1    |
-   |servicepoints                       |                                            |     |
-   +------------------------------------+--------------------------------------------+-----+
-   |GET /energy/electricity/            |energy:electricity.servicepoints.detail:read|1    |
-   |servicepoints/{servicePointId}      |                                            |     |
-   +------------------------------------+--------------------------------------------+-----+
-   |GET                                 |energy:electricity.der.basic:read           |1    |
-   |/energy/electricity/servicepoints/  |                                            |     |
-   |der                                 |                                            |     |
-   +------------------------------------+--------------------------------------------+-----+
-   |POST                                |energy:electricity.der.basic:read           |1    |
-   |/energy/electricity/servicepoints/  |                                            |     |
-   |der                                 |                                            |     |
-   +------------------------------------+--------------------------------------------+-----+
+                 +==========================+===========+
+                 | Resource Server Endpoint | Valid x-v |
+                 +==========================+===========+
+                 | GET /energy/accounts     | 2         |
+                 +--------------------------+-----------+
 
-                                  Table 3
+                                 Table 3
+
+   The Provider SHALL make available, as described further in
+   [DATARIGHTPLUS-REDOCLY-ID1] endpoints, the following endpoints where
+   the token is granted the energy:accounts.detail:read scope value:
+
+             +==================================+===========+
+             | Resource Server Endpoint         | Valid x-v |
+             +==================================+===========+
+             | GET /energy/accounts/{accountId} | 2, 3      |
+             +----------------------------------+-----------+
+
+                                 Table 4
+
+   The Provider SHALL make available, as described further in
+   [DATARIGHTPLUS-REDOCLY-ID1] endpoints, the following endpoints where
+   the token is granted the energy:accounts.concessions:read scope
+   value:
+
+       +==============================================+===========+
+       | Resource Server Endpoint                     | Valid x-v |
+       +==============================================+===========+
+       | GET /energy/accounts/{accountId}/concessions | 1         |
+       +----------------------------------------------+-----------+
+
+                                 Table 5
+
+   The Provider SHALL make available, as described further in
+   [DATARIGHTPLUS-REDOCLY-ID1] endpoints, the following endpoints where
+   the token is granted the energy:accounts.paymentschedule:read scope
+   value:
+
+     +===================================================+===========+
+     | Resource Server Endpoint                          | Valid x-v |
+     +===================================================+===========+
+     | GET /energy/accounts/{accountId}/payment-schedule | 1         |
+     +---------------------------------------------------+-----------+
+
+                                  Table 6
+
+   The Provider SHALL make available, as described further in
+   [DATARIGHTPLUS-REDOCLY-ID1] endpoints, the following endpoints where
+   the token is granted the energy:billing:read scope value:
+
+         +===========================================+===========+
+         | Resource Server Endpoint                  | Valid x-v |
+         +===========================================+===========+
+         | GET /energy/accounts/balances             | 1         |
+         +-------------------------------------------+-----------+
+         | GET /energy/accounts/{accountId}/balance  | 1         |
+         +-------------------------------------------+-----------+
+         | POST /banking/accounts/balances           | 1         |
+         +-------------------------------------------+-----------+
+         | GET /energy/accounts/{accountId}/invoices | 1         |
+         +-------------------------------------------+-----------+
+         | GET /energy/accounts/invoices             | 1         |
+         +-------------------------------------------+-----------+
+         | POST /energy/accounts/invoices            | 1         |
+         +-------------------------------------------+-----------+
+         | GET /energy/accounts/{accountId}/billing  | 1         |
+         +-------------------------------------------+-----------+
+         | GET /energy/accounts/billing              | 1         |
+         +-------------------------------------------+-----------+
+         | POST /energy/accounts/billing             | 1         |
+         +-------------------------------------------+-----------+
+
+                                  Table 7
+
+   The Provider SHALL make available, as described further in
+   [DATARIGHTPLUS-REDOCLY-ID1] endpoints, the following endpoints where
+   the token is granted the energy:electricity.usage:read scope value:
+
+          +=========================================+===========+
+          | Resource Server Endpoint                | Valid x-v |
+          +=========================================+===========+
+          | GET /energy/electricity/                | 1         |
+          | servicepoints/{servicePointId}/usage    |           |
+          +-----------------------------------------+-----------+
+          | GET /energy/electricity/servicepoints/  | 1         |
+          | usage                                   |           |
+          +-----------------------------------------+-----------+
+          | POST /energy/electricity/servicepoints/ | 1         |
+          | usage                                   |           |
+          +-----------------------------------------+-----------+
+
+                                  Table 8
+
+   The Provider SHALL make available, as described further in
+   [DATARIGHTPLUS-REDOCLY-ID1] endpoints, the following endpoints where
+   the token is granted the energy:electricity.servicepoints.basic:read
+   scope value:
+
+           +=======================================+===========+
+           | Resource Server Endpoint              | Valid x-v |
+           +=======================================+===========+
+           | GET /energy/electricity/servicepoints | 1         |
+           +---------------------------------------+-----------+
+
+                                  Table 9
+
+   The Provider SHALL make available, as described further in
+   [DATARIGHTPLUS-REDOCLY-ID1] endpoints, the following endpoints where
+   the token is granted the energy:electricity.servicepoints.detail:read
+   scope value:
+
+              +================================+===========+
+              | Resource Server Endpoint       | Valid x-v |
+              +================================+===========+
+              | GET /energy/electricity/       | 1         |
+              | servicepoints/{servicePointId} |           |
+              +--------------------------------+-----------+
+
+                                 Table 10
+
+   The Provider SHALL make available, as described further in
+   [DATARIGHTPLUS-REDOCLY-ID1] endpoints, the following endpoints where
+   the token is granted the energy:electricity.der.basic:read scope
+   value:
+
+        +============================================+===========+
+        | Resource Server Endpoint                   | Valid x-v |
+        +============================================+===========+
+        | GET /energy/electricity/servicepoints/der  | 1         |
+        +--------------------------------------------+-----------+
+        | POST /energy/electricity/servicepoints/der | 1         |
+        +--------------------------------------------+-----------+
+
+                                 Table 11
 
    In addition, the Provider MAY deliver the following unauthenticated
    and generally available endpoints, in accordance with
    [DATARIGHTPLUS-REDOCLY-ID1]:
 
-        +============================+======================+=====+
-        | Resource Server Endpoint   | OpenAPI Operation ID | x-v |
-        +============================+======================+=====+
-        | GET /energy/plans          | listEnergyPlans      | 1   |
-        +----------------------------+----------------------+-----+
-        | GET /energy/plans/{planId} | getEnergyPlanDetail  | 1   |
-        +----------------------------+----------------------+-----+
+                   +============================+=====+
+                   | Resource Server Endpoint   | x-v |
+                   +============================+=====+
+                   | GET /energy/plans          | 1   |
+                   +----------------------------+-----+
+                   | GET /energy/plans/{planId} | 1   |
+                   +----------------------------+-----+
 
-                                  Table 4
+                                 Table 12
 
 3.2.1.  Electricity Authority Resource Bridge
 
-   In order to deliver information requested by the Initiator but stored
-   and mastered from the Electricity Authority, the Provider SHALL
-   provide a back-to-back endpoint bridge mapped as follows:
+   In order to deliver information requested by the Initiator the
+   Provider SHALL provide a back-to-back relay of resource server
+   requests between the Provider and Electricity Authority as follows:
 
    +====================================+============================================+
    |Provider Resource Server Endpoint   |Electricity Authority Resource Server       |
@@ -396,7 +460,7 @@ Table of Contents
    |der                                 |der                                         |
    +------------------------------------+--------------------------------------------+
 
-                                  Table 5
+                                  Table 13
 
    _Note:_ Refer to the Provider Resource Server (#resource-server) and
    Electricity Authority Resource Server (#resource-server-1) sections
@@ -446,7 +510,7 @@ Table of Contents
      | POST /secondary/energy/electricity/servicepoints  | 1         |
      +---------------------------------------------------+-----------+
 
-                                  Table 6
+                                  Table 14
 
 6.  Electricity Plan Website
 
@@ -454,15 +518,15 @@ Table of Contents
    unauthenticated and generally available endpoints, in accordance with
    [DATARIGHTPLUS-REDOCLY-ID1]:
 
-     +============================+======================+===========+
-     | Resource Server Endpoint   | OpenAPI Operation ID | Valid x-v |
-     +============================+======================+===========+
-     | GET /energy/plans          | listEnergyPlans      | 1         |
-     +----------------------------+----------------------+-----------+
-     | GET /energy/plans/{planId} | getEnergyPlanDetail  | 1         |
-     +----------------------------+----------------------+-----------+
+                +============================+===========+
+                | Resource Server Endpoint   | Valid x-v |
+                +============================+===========+
+                | GET /energy/plans          | 1         |
+                +----------------------------+-----------+
+                | GET /energy/plans/{planId} | 1         |
+                +----------------------------+-----------+
 
-                                  Table 7
+                                 Table 15
 
 7.  Acknowledgement
 

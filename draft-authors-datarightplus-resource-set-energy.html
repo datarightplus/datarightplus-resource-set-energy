@@ -1174,7 +1174,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-scope">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-scope" class="section-name selfRef">Scope</a>
       </h2>
-<p id="section-1-1">The scope of this document is intended to be limited to the resource server endpoints related to energy, and their associated authorisation contexts.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">The scope of this document is intended to be limited to the resource server endpoints related to energy, their associated authorisation contexts, the services provided by the Energy Authority and Energy Plan Website.<a href="#section-1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="terminology">
@@ -1190,7 +1190,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-providers">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-providers" class="section-name selfRef">Providers</a>
       </h2>
-<p id="section-3-1">Providers are <span class="bcp14">REQUIRED</span> to deliver a number of authorisation and resource server capabilities.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-1">Providers which manage energy sector information are expected to deliver a number of resource server end points.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <div id="authorisation-server">
 <section id="section-3.1">
         <h3 id="name-authorisation-server">
@@ -1206,8 +1206,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
           <h4 id="name-authorisation-scopes">
 <a href="#section-3.1.1" class="section-number selfRef">3.1.1. </a><a href="#name-authorisation-scopes" class="section-name selfRef">Authorisation Scopes</a>
           </h4>
-<p id="section-3.1.1-1">Possible <code>scope</code> values to be provided by the Initiator to the Provider are documented below. In addition, this specification also outlines the title and a simple description of the language to use to describe the data set referred to as Data Set Language.<a href="#section-3.1.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.1.1-2">Providers and Initiators <span class="bcp14">SHALL</span> utilise the prescribed authorisation scopes and Data Set Language when seeking Consumer authorisation:<a href="#section-3.1.1-2" class="pilcrow">¶</a></p>
+<p id="section-3.1.1-1">The Provider authorisation server <span class="bcp14">SHALL</span> utilise the following Data Set Language when seeking Consumer authorisation from a User for specific <code>scope</code> values:<a href="#section-3.1.1-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-1">
             <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
 <thead>
@@ -1413,8 +1412,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <h5 id="name-overlapping-scope-optimisat">
 <a href="#section-3.1.1.1" class="section-number selfRef">3.1.1.1. </a><a href="#name-overlapping-scope-optimisat" class="section-name selfRef">Overlapping Scope Optimisation</a>
             </h5>
-<p id="section-3.1.1.1-1">In certain situations multiple technical scopes overlap which can lead to confusion by the User granting permission for the Consumer (which may be themselves or an Entity they represent).<a href="#section-3.1.1.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.1.1.1-2">Data Cluster Language presentation <span class="bcp14">SHALL</span> be collapsed for the following pairs of <code>scope</code> values:<a href="#section-3.1.1.1-2" class="pilcrow">¶</a></p>
+<p id="section-3.1.1.1-1">Alternative Data Cluster Language <span class="bcp14">SHALL</span> be used when pairs of <code>scope</code> value are used as follows:<a href="#section-3.1.1.1-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-2">
               <caption><a href="#table-2" class="selfRef">Table 2</a></caption>
 <thead>
@@ -1496,13 +1494,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <h3 id="name-resource-server">
 <a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-resource-server" class="section-name selfRef">Resource Server</a>
         </h3>
-<p id="section-3.2-1">The Provider <span class="bcp14">SHALL</span> make available, as described further in <span>[<a href="#DATARIGHTPLUS-REDOCLY-ID1" class="cite xref">DATARIGHTPLUS-REDOCLY-ID1</a>]</span>, the following bearer token enabled endpoints:<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-1">The Provider <span class="bcp14">SHALL</span> make available, as described further in <span>[<a href="#DATARIGHTPLUS-REDOCLY-ID1" class="cite xref">DATARIGHTPLUS-REDOCLY-ID1</a>]</span> endpoints, the following endpoints where the token is granted the <code>energy:accounts.basic:read</code> scope value:<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-3">
           <caption><a href="#table-3" class="selfRef">Table 3</a></caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Resource Server Endpoint</th>
-              <th class="text-left" rowspan="1" colspan="1">Authorisation Scope</th>
               <th class="text-left" rowspan="1" colspan="1">Valid <code>x-v</code>
 </th>
             </tr>
@@ -1513,40 +1510,88 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>GET /energy/accounts</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:accounts.basic:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>2</code>
 </td>
             </tr>
+          </tbody>
+        </table>
+<p id="section-3.2-3">The Provider <span class="bcp14">SHALL</span> make available, as described further in <span>[<a href="#DATARIGHTPLUS-REDOCLY-ID1" class="cite xref">DATARIGHTPLUS-REDOCLY-ID1</a>]</span> endpoints, the following endpoints where the token is granted the <code>energy:accounts.detail:read</code> scope value:<a href="#section-3.2-3" class="pilcrow">¶</a></p>
+<table class="center" id="table-4">
+          <caption><a href="#table-4" class="selfRef">Table 4</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Resource Server Endpoint</th>
+              <th class="text-left" rowspan="1" colspan="1">Valid <code>x-v</code>
+</th>
+            </tr>
+          </thead>
+          <tbody>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>GET /energy/accounts/{accountId}</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:accounts.detail:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>2</code>, <code>3</code>
 </td>
             </tr>
+          </tbody>
+        </table>
+<p id="section-3.2-5">The Provider <span class="bcp14">SHALL</span> make available, as described further in <span>[<a href="#DATARIGHTPLUS-REDOCLY-ID1" class="cite xref">DATARIGHTPLUS-REDOCLY-ID1</a>]</span> endpoints, the following endpoints where the token is granted the <code>energy:accounts.concessions:read</code> scope value:<a href="#section-3.2-5" class="pilcrow">¶</a></p>
+<table class="center" id="table-5">
+          <caption><a href="#table-5" class="selfRef">Table 5</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Resource Server Endpoint</th>
+              <th class="text-left" rowspan="1" colspan="1">Valid <code>x-v</code>
+</th>
+            </tr>
+          </thead>
+          <tbody>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>GET /energy/accounts/{accountId}/concessions</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:accounts.concessions:read</code>
+                <code>1</code>
+</td>
+            </tr>
+          </tbody>
+        </table>
+<p id="section-3.2-7">The Provider <span class="bcp14">SHALL</span> make available, as described further in <span>[<a href="#DATARIGHTPLUS-REDOCLY-ID1" class="cite xref">DATARIGHTPLUS-REDOCLY-ID1</a>]</span> endpoints, the following endpoints where the token is granted the <code>energy:accounts.paymentschedule:read</code> scope value:<a href="#section-3.2-7" class="pilcrow">¶</a></p>
+<table class="center" id="table-6">
+          <caption><a href="#table-6" class="selfRef">Table 6</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Resource Server Endpoint</th>
+              <th class="text-left" rowspan="1" colspan="1">Valid <code>x-v</code>
+</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">
+                <code>GET /energy/accounts/{accountId}/payment-schedule</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
+          </tbody>
+        </table>
+<p id="section-3.2-9">The Provider <span class="bcp14">SHALL</span> make available, as described further in <span>[<a href="#DATARIGHTPLUS-REDOCLY-ID1" class="cite xref">DATARIGHTPLUS-REDOCLY-ID1</a>]</span> endpoints, the following endpoints where the token is granted the <code>energy:billing:read</code> scope value:<a href="#section-3.2-9" class="pilcrow">¶</a></p>
+<table class="center" id="table-7">
+          <caption><a href="#table-7" class="selfRef">Table 7</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Resource Server Endpoint</th>
+              <th class="text-left" rowspan="1" colspan="1">Valid <code>x-v</code>
+</th>
+            </tr>
+          </thead>
+          <tbody>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>GET /energy/accounts/balances</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:billing:read</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1557,29 +1602,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>GET /energy/accounts/{accountId}/balance</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:billing:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>POST /banking/accounts/balances</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:billing:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>1</code>
-</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>GET /energy/accounts/{accountId}/payment-schedule</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:accounts.paymentschedule:read</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1590,18 +1618,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>GET /energy/accounts/{accountId}/invoices</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:billing:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>GET /energy/accounts/invoices</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:billing:read</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1612,18 +1634,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>POST /energy/accounts/invoices</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:billing:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>GET /energy/accounts/{accountId}/billing</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:billing:read</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1634,9 +1650,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>GET /energy/accounts/billing</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:billing:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
@@ -1645,18 +1658,25 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>POST /energy/accounts/billing</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:billing:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
+          </tbody>
+        </table>
+<p id="section-3.2-11">The Provider <span class="bcp14">SHALL</span> make available, as described further in <span>[<a href="#DATARIGHTPLUS-REDOCLY-ID1" class="cite xref">DATARIGHTPLUS-REDOCLY-ID1</a>]</span> endpoints, the following endpoints where the token is granted the <code>energy:electricity.usage:read</code> scope value:<a href="#section-3.2-11" class="pilcrow">¶</a></p>
+<table class="center" id="table-8">
+          <caption><a href="#table-8" class="selfRef">Table 8</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Resource Server Endpoint</th>
+              <th class="text-left" rowspan="1" colspan="1">Valid <code>x-v</code>
+</th>
+            </tr>
+          </thead>
+          <tbody>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>GET /energy/electricity/servicepoints/{servicePointId}/usage</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:electricity.usage:read</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1667,9 +1687,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>GET /energy/electricity/servicepoints/usage</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:electricity.usage:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
@@ -1678,40 +1695,67 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>POST /energy/electricity/servicepoints/usage</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:electricity.usage:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
+          </tbody>
+        </table>
+<p id="section-3.2-13">The Provider <span class="bcp14">SHALL</span> make available, as described further in <span>[<a href="#DATARIGHTPLUS-REDOCLY-ID1" class="cite xref">DATARIGHTPLUS-REDOCLY-ID1</a>]</span> endpoints, the following endpoints where the token is granted the <code>energy:electricity.servicepoints.basic:read</code> scope value:<a href="#section-3.2-13" class="pilcrow">¶</a></p>
+<table class="center" id="table-9">
+          <caption><a href="#table-9" class="selfRef">Table 9</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Resource Server Endpoint</th>
+              <th class="text-left" rowspan="1" colspan="1">Valid <code>x-v</code>
+</th>
+            </tr>
+          </thead>
+          <tbody>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>GET /energy/electricity/servicepoints</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:electricity.servicepoints.basic:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
+          </tbody>
+        </table>
+<p id="section-3.2-15">The Provider <span class="bcp14">SHALL</span> make available, as described further in <span>[<a href="#DATARIGHTPLUS-REDOCLY-ID1" class="cite xref">DATARIGHTPLUS-REDOCLY-ID1</a>]</span> endpoints, the following endpoints where the token is granted the <code>energy:electricity.servicepoints.detail:read</code> scope value:<a href="#section-3.2-15" class="pilcrow">¶</a></p>
+<table class="center" id="table-10">
+          <caption><a href="#table-10" class="selfRef">Table 10</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Resource Server Endpoint</th>
+              <th class="text-left" rowspan="1" colspan="1">Valid <code>x-v</code>
+</th>
+            </tr>
+          </thead>
+          <tbody>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>GET /energy/electricity/servicepoints/{servicePointId}</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:electricity.servicepoints.detail:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
+          </tbody>
+        </table>
+<p id="section-3.2-17">The Provider <span class="bcp14">SHALL</span> make available, as described further in <span>[<a href="#DATARIGHTPLUS-REDOCLY-ID1" class="cite xref">DATARIGHTPLUS-REDOCLY-ID1</a>]</span> endpoints, the following endpoints where the token is granted the <code>energy:electricity.der.basic:read</code> scope value:<a href="#section-3.2-17" class="pilcrow">¶</a></p>
+<table class="center" id="table-11">
+          <caption><a href="#table-11" class="selfRef">Table 11</a></caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Resource Server Endpoint</th>
+              <th class="text-left" rowspan="1" colspan="1">Valid <code>x-v</code>
+</th>
+            </tr>
+          </thead>
+          <tbody>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>GET /energy/electricity/servicepoints/der</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:electricity.der.basic:read</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1722,21 +1766,17 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>POST /energy/electricity/servicepoints/der</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>energy:electricity.der.basic:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
           </tbody>
         </table>
-<p id="section-3.2-3">In addition, the Provider <span class="bcp14">MAY</span> deliver the following unauthenticated and generally available endpoints, in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY-ID1" class="cite xref">DATARIGHTPLUS-REDOCLY-ID1</a>]</span>:<a href="#section-3.2-3" class="pilcrow">¶</a></p>
-<table class="center" id="table-4">
-          <caption><a href="#table-4" class="selfRef">Table 4</a></caption>
+<p id="section-3.2-19">In addition, the Provider <span class="bcp14">MAY</span> deliver the following unauthenticated and generally available endpoints, in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY-ID1" class="cite xref">DATARIGHTPLUS-REDOCLY-ID1</a>]</span>:<a href="#section-3.2-19" class="pilcrow">¶</a></p>
+<table class="center" id="table-12">
+          <caption><a href="#table-12" class="selfRef">Table 12</a></caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Resource Server Endpoint</th>
-              <th class="text-left" rowspan="1" colspan="1">OpenAPI Operation ID</th>
               <th class="text-left" rowspan="1" colspan="1">
                 <code>x-v</code>
 </th>
@@ -1748,18 +1788,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>GET /energy/plans</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>listEnergyPlans</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>GET /energy/plans/{planId}</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>getEnergyPlanDetail</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1772,9 +1806,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
           <h4 id="name-electricity-authority-resou">
 <a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-electricity-authority-resou" class="section-name selfRef">Electricity Authority Resource Bridge</a>
           </h4>
-<p id="section-3.2.1-1">In order to deliver information requested by the Initiator but stored and mastered from the Electricity Authority, the Provider <span class="bcp14">SHALL</span> provide a back-to-back endpoint bridge mapped as follows:<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
-<table class="center" id="table-5">
-            <caption><a href="#table-5" class="selfRef">Table 5</a></caption>
+<p id="section-3.2.1-1">In order to deliver information requested by the Initiator the Provider <span class="bcp14">SHALL</span> provide a back-to-back relay of resource server requests between the Provider and Electricity Authority as follows:<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
+<table class="center" id="table-13">
+            <caption><a href="#table-13" class="selfRef">Table 13</a></caption>
 <thead>
               <tr>
                 <th class="text-left" rowspan="1" colspan="1">Provider Resource Server Endpoint</th>
@@ -1875,8 +1909,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-resource-server-2" class="section-name selfRef">Resource Server</a>
         </h3>
 <p id="section-5.2-1">The Electricity Authority <span class="bcp14">SHALL</span> make the following restricted endpoints available to Providers, using existing authentication and authorisation channels, and in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY-ID1" class="cite xref">DATARIGHTPLUS-REDOCLY-ID1</a>]</span>:<a href="#section-5.2-1" class="pilcrow">¶</a></p>
-<table class="center" id="table-6">
-          <caption><a href="#table-6" class="selfRef">Table 6</a></caption>
+<table class="center" id="table-14">
+          <caption><a href="#table-14" class="selfRef">Table 14</a></caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Resource Server Endpoint</th>
@@ -1945,12 +1979,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-electricity-plan-website" class="section-name selfRef">Electricity Plan Website</a>
       </h2>
 <p id="section-6-1">The Electricity Plan Website <span class="bcp14">SHALL</span> deliver the following unauthenticated and generally available endpoints, in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY-ID1" class="cite xref">DATARIGHTPLUS-REDOCLY-ID1</a>]</span>:<a href="#section-6-1" class="pilcrow">¶</a></p>
-<table class="center" id="table-7">
-        <caption><a href="#table-7" class="selfRef">Table 7</a></caption>
+<table class="center" id="table-15">
+        <caption><a href="#table-15" class="selfRef">Table 15</a></caption>
 <thead>
           <tr>
             <th class="text-left" rowspan="1" colspan="1">Resource Server Endpoint</th>
-            <th class="text-left" rowspan="1" colspan="1">OpenAPI Operation ID</th>
             <th class="text-left" rowspan="1" colspan="1">Valid <code>x-v</code>
 </th>
           </tr>
@@ -1961,18 +1994,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
               <code>GET /energy/plans</code>
 </td>
             <td class="text-left" rowspan="1" colspan="1">
-              <code>listEnergyPlans</code>
-</td>
-            <td class="text-left" rowspan="1" colspan="1">
               <code>1</code>
 </td>
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">
               <code>GET /energy/plans/{planId}</code>
-</td>
-            <td class="text-left" rowspan="1" colspan="1">
-              <code>getEnergyPlanDetail</code>
 </td>
             <td class="text-left" rowspan="1" colspan="1">
               <code>1</code>
