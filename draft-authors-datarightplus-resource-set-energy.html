@@ -1131,6 +1131,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
                 <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-resource-server" class="internal xref">Resource Server</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.1">
+                    <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-electricity-authority-resou" class="internal xref">Electricity Authority Resource Bridge</a></p>
+</li>
+                </ul>
 </li>
             </ul>
 </li>
@@ -1491,16 +1496,14 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <h3 id="name-resource-server">
 <a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-resource-server" class="section-name selfRef">Resource Server</a>
         </h3>
-<p id="section-3.2-1">The Provider <span class="bcp14">SHALL</span> deliver the following authorisation enabled endpoints, in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY" class="cite xref">DATARIGHTPLUS-REDOCLY</a>]</span>:<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-1">The Provider <span class="bcp14">SHALL</span> make available, as described further in <span>[<a href="#DATARIGHTPLUS-REDOCLY-ID1" class="cite xref">DATARIGHTPLUS-REDOCLY-ID1</a>]</span>, the following bearer token enabled endpoints:<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-3">
           <caption><a href="#table-3" class="selfRef">Table 3</a></caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Resource Server Endpoint</th>
               <th class="text-left" rowspan="1" colspan="1">Authorisation Scope</th>
-              <th class="text-left" rowspan="1" colspan="1">OpenAPI Operation ID</th>
-              <th class="text-left" rowspan="1" colspan="1">
-                <code>x-v</code>
+              <th class="text-left" rowspan="1" colspan="1">Valid <code>x-v</code>
 </th>
             </tr>
           </thead>
@@ -1511,9 +1514,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>energy:accounts.basic:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>listEnergyAccounts</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>2</code>
@@ -1527,10 +1527,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>energy:accounts.detail:read</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>getEnergyAccountDetail</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>2</code> and <code>3</code>
+                <code>2</code>, <code>3</code>
 </td>
             </tr>
             <tr>
@@ -1539,9 +1536,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>energy:accounts.concessions:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>getEnergyAccountConcessions</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1555,9 +1549,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>energy:billing:read</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>getEnergyAccountBalances</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
@@ -1567,9 +1558,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>energy:billing:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>getEnergyAccountBalance</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1583,9 +1571,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>energy:billing:read</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>listBalancesSpecificEnergyAccounts</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
@@ -1595,9 +1580,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>energy:accounts.paymentschedule:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>getEnergyAccountPaymentSchedule</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1611,9 +1593,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>energy:billing:read</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>listEnergyAccountInvoices</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
@@ -1623,9 +1602,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>energy:billing:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>listEnergyInvoices</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1639,9 +1615,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>energy:billing:read</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>listEnergyInvoicesSpecificAccounts</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
@@ -1651,9 +1624,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>energy:billing:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>getEnergyAccountBilling</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1667,9 +1637,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>energy:billing:read</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>getEnergyAccountBillingBulk</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
@@ -1679,9 +1646,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>energy:billing:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>listBillingSpecificEnergyAccounts</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1695,9 +1659,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>energy:electricity.usage:read</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>getElectricityServicePointUsage</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
@@ -1707,9 +1668,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>energy:electricity.usage:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>getElectricityServicePointUsageBulk</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1723,9 +1681,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>energy:electricity.usage:read</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>getElectricityUsageSpecificServicePoints</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
@@ -1735,9 +1690,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>energy:electricity.servicepoints.basic:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>listElectricityServicePoints</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1751,9 +1703,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>energy:electricity.servicepoints.detail:read</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>getElectricityServicePointDetail</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
@@ -1763,9 +1712,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>energy:electricity.der.basic:read</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>getElectricityServicePointDERBulk</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1779,15 +1725,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>energy:electricity.der.basic:read</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>getElectricityDERSpecificServicePoints</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
           </tbody>
         </table>
-<p id="section-3.2-3">In addition, the Provider <span class="bcp14">MAY</span> deliver the following unauthenticated and generally available endpoints, in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY" class="cite xref">DATARIGHTPLUS-REDOCLY</a>]</span>:<a href="#section-3.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.2-3">In addition, the Provider <span class="bcp14">MAY</span> deliver the following unauthenticated and generally available endpoints, in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY-ID1" class="cite xref">DATARIGHTPLUS-REDOCLY-ID1</a>]</span>:<a href="#section-3.2-3" class="pilcrow">¶</a></p>
 <table class="center" id="table-4">
           <caption><a href="#table-4" class="selfRef">Table 4</a></caption>
 <thead>
@@ -1824,6 +1767,82 @@ svg :is([fill="white"], [fill^="#fff"]) {
             </tr>
           </tbody>
         </table>
+<div id="electricity-authority-resource-bridge">
+<section id="section-3.2.1">
+          <h4 id="name-electricity-authority-resou">
+<a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-electricity-authority-resou" class="section-name selfRef">Electricity Authority Resource Bridge</a>
+          </h4>
+<p id="section-3.2.1-1">In order to deliver information requested by the Initiator but stored and mastered from the Electricity Authority, the Provider <span class="bcp14">SHALL</span> provide a back-to-back endpoint bridge mapped as follows:<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
+<table class="center" id="table-5">
+            <caption><a href="#table-5" class="selfRef">Table 5</a></caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Provider Resource Server Endpoint</th>
+                <th class="text-left" rowspan="1" colspan="1">Electricity Authority Resource Server Endpoint</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>GET /energy/electricity/servicepoints/{servicePointId}/usage</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>GET /secondary/energy/electricity/servicepoints/{servicePointId}/usage</code>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>GET /energy/electricity/servicepoints/usage</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>GET /secondary/energy/electricity/servicepoints/usage</code>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>POST /energy/electricity/servicepoints/usage</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>POST /secondary/energy/electricity/servicepoints/usage</code>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>GET /energy/electricity/servicepoints</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>GET /secondary/energy/electricity/servicepoints</code>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>GET /energy/electricity/servicepoints/{servicePointId}</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>GET /secondary/energy/electricity/servicepoints/{servicePointId}</code>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>GET /energy/electricity/servicepoints/der</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>GET /secondary/energy/electricity/servicepoints/der</code>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>POST /energy/electricity/servicepoints/der</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <code>POST /secondary/energy/electricity/servicepoints/der</code>
+</td>
+              </tr>
+            </tbody>
+          </table>
+<p id="section-3.2.1-3"><em>Note:</em> Refer to the Provider <a href="#resource-server">Resource Server</a> and Electricity Authority <a href="#resource-server-1">Resource Server</a> sections for the appropriate API mappings.<a href="#section-3.2.1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 </section>
@@ -1855,15 +1874,13 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <h3 id="name-resource-server-2">
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-resource-server-2" class="section-name selfRef">Resource Server</a>
         </h3>
-<p id="section-5.2-1">The Electricity Authority <span class="bcp14">SHALL</span> make the following restricted endpoints available to Providers, using existing authentication and authorisation channels, and in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY" class="cite xref">DATARIGHTPLUS-REDOCLY</a>]</span>:<a href="#section-5.2-1" class="pilcrow">¶</a></p>
-<table class="center" id="table-5">
-          <caption><a href="#table-5" class="selfRef">Table 5</a></caption>
+<p id="section-5.2-1">The Electricity Authority <span class="bcp14">SHALL</span> make the following restricted endpoints available to Providers, using existing authentication and authorisation channels, and in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY-ID1" class="cite xref">DATARIGHTPLUS-REDOCLY-ID1</a>]</span>:<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<table class="center" id="table-6">
+          <caption><a href="#table-6" class="selfRef">Table 6</a></caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Resource Server Endpoint</th>
-              <th class="text-left" rowspan="1" colspan="1">OpenAPI Operation ID</th>
-              <th class="text-left" rowspan="1" colspan="1">
-                <code>x-v</code>
+              <th class="text-left" rowspan="1" colspan="1">Valid <code>x-v</code>
 </th>
             </tr>
           </thead>
@@ -1871,9 +1888,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>GET /secondary/energy/electricity/servicepoints/{nationalMeteringId}/usage</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>getElectricalAuthorityServicePointUsage</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1884,18 +1898,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>POST /secondary/energy/electricity/servicepoints/usage</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>getElectricalAuthorityUsageSpecificServicePoints</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>POST /secondary/energy/electricity/servicepoints</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>getElectricalAuthorityServicePoints</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1906,9 +1914,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>GET /secondary/energy/electricity/servicepoints/{nationalMeteringId}</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>getElectricalAuthorityServicePointDetail</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
@@ -1917,18 +1922,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <code>GET /secondary/energy/electricity/servicepoints/{nationalMeteringId}/der</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <code>getElectricalAuthorityServicePointDER</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
 </td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>POST /secondary/energy/electricity/servicepoints</code>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>getElectricalAuthorityDERSpecificServicePoints</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <code>1</code>
@@ -1945,15 +1944,14 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-electricity-plan-website">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-electricity-plan-website" class="section-name selfRef">Electricity Plan Website</a>
       </h2>
-<p id="section-6-1">The Electricity Plan Website <span class="bcp14">SHALL</span> deliver the following unauthenticated and generally available endpoints, in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY" class="cite xref">DATARIGHTPLUS-REDOCLY</a>]</span>:<a href="#section-6-1" class="pilcrow">¶</a></p>
-<table class="center" id="table-6">
-        <caption><a href="#table-6" class="selfRef">Table 6</a></caption>
+<p id="section-6-1">The Electricity Plan Website <span class="bcp14">SHALL</span> deliver the following unauthenticated and generally available endpoints, in accordance with <span>[<a href="#DATARIGHTPLUS-REDOCLY-ID1" class="cite xref">DATARIGHTPLUS-REDOCLY-ID1</a>]</span>:<a href="#section-6-1" class="pilcrow">¶</a></p>
+<table class="center" id="table-7">
+        <caption><a href="#table-7" class="selfRef">Table 7</a></caption>
 <thead>
           <tr>
             <th class="text-left" rowspan="1" colspan="1">Resource Server Endpoint</th>
             <th class="text-left" rowspan="1" colspan="1">OpenAPI Operation ID</th>
-            <th class="text-left" rowspan="1" colspan="1">
-              <code>x-v</code>
+            <th class="text-left" rowspan="1" colspan="1">Valid <code>x-v</code>
 </th>
           </tr>
         </thead>
@@ -2014,9 +2012,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <dd>
 <span class="refAuthor">Data Standards Body (Treasury)</span>, <span class="refTitle">"Consumer Data Standards (CDS)"</span>, <span>&lt;<a href="https://consumerdatastandardsaustralia.github.io/standards">https://consumerdatastandardsaustralia.github.io/standards</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="DATARIGHTPLUS-REDOCLY">[DATARIGHTPLUS-REDOCLY]</dt>
+<dt id="DATARIGHTPLUS-REDOCLY-ID1">[DATARIGHTPLUS-REDOCLY-ID1]</dt>
       <dd>
-<span class="refAuthor">Low, S.</span>, <span class="refAuthor">Kolera, B.</span>, and <span class="refAuthor">W. Cai</span>, <span class="refTitle">"DataRight+: Redocly"</span>, <span>&lt;<a href="https://datarightplus.github.io/datarightplus-redocly/">https://datarightplus.github.io/datarightplus-redocly/</a>&gt;</span>. </dd>
+<span class="refAuthor">Low, S.</span>, <span class="refAuthor">Kolera, B.</span>, and <span class="refAuthor">W. Cai</span>, <span class="refTitle">"DataRight+: Redocly (ID1)"</span>, <span>&lt;<a href="https://datarightplus.github.io/datarightplus-redocly/?v=ID1">https://datarightplus.github.io/datarightplus-redocly/?v=ID1</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="DATARIGHTPLUS-ROSETTA">[DATARIGHTPLUS-ROSETTA]</dt>
       <dd>

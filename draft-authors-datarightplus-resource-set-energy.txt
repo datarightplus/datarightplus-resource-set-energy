@@ -61,6 +61,7 @@ Table of Contents
      3.1.  Authorisation Server
        3.1.1.  Authorisation Scopes
      3.2.  Resource Server
+       3.2.1.  Electricity Authority Resource Bridge
    4.  Initiators
    5.  Electricity Authority
      5.1.  Authorisation Server
@@ -277,77 +278,77 @@ Table of Contents
 
 3.2.  Resource Server
 
-   The Provider SHALL deliver the following authorisation enabled
-   endpoints, in accordance with [DATARIGHTPLUS-REDOCLY]:
+   The Provider SHALL make available, as described further in
+   [DATARIGHTPLUS-REDOCLY-ID1], the following bearer token enabled
+   endpoints:
 
-   +====================================+============================================+========================================+===+
-   |Resource Server Endpoint            |Authorisation Scope                         |OpenAPI Operation ID                    |x-v|
-   +====================================+============================================+========================================+===+
-   |GET /energy/accounts                |energy:accounts.basic:read                  |listEnergyAccounts                      |2  |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |GET /energy/accounts/{accountId}    |energy:accounts.detail:read                 |getEnergyAccountDetail                  |2  |
-   |                                    |                                            |                                        |and|
-   |                                    |                                            |                                        |3  |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |GET /energy/                        |energy:accounts.concessions:read            |getEnergyAccountConcessions             |1  |
-   |accounts/{accountId}/concessions    |                                            |                                        |   |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |GET /energy/accounts/balances       |energy:billing:read                         |getEnergyAccountBalances                |1  |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |GET /energy/                        |energy:billing:read                         |getEnergyAccountBalance                 |1  |
-   |accounts/{accountId}/balance        |                                            |                                        |   |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |POST /banking/accounts/balances     |energy:billing:read                         |listBalancesSpecificEnergyAccounts      |1  |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |GET /energy/                        |energy:accounts.paymentschedule:read        |getEnergyAccountPaymentSchedule         |1  |
-   |accounts/{accountId}/payment-       |                                            |                                        |   |
-   |schedule                            |                                            |                                        |   |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |GET /energy/                        |energy:billing:read                         |listEnergyAccountInvoices               |1  |
-   |accounts/{accountId}/invoices       |                                            |                                        |   |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |GET /energy/accounts/invoices       |energy:billing:read                         |listEnergyInvoices                      |1  |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |POST /energy/accounts/invoices      |energy:billing:read                         |listEnergyInvoicesSpecificAccounts      |1  |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |GET /energy/                        |energy:billing:read                         |getEnergyAccountBilling                 |1  |
-   |accounts/{accountId}/billing        |                                            |                                        |   |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |GET /energy/accounts/billing        |energy:billing:read                         |getEnergyAccountBillingBulk             |1  |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |POST /energy/accounts/billing       |energy:billing:read                         |listBillingSpecificEnergyAccounts       |1  |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |GET /energy/electricity/            |energy:electricity.usage:read               |getElectricityServicePointUsage         |1  |
-   |servicepoints/{servicePointId}/usage|                                            |                                        |   |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |GET                                 |energy:electricity.usage:read               |getElectricityServicePointUsageBulk     |1  |
-   |/energy/electricity/servicepoints/  |                                            |                                        |   |
-   |usage                               |                                            |                                        |   |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |POST                                |energy:electricity.usage:read               |getElectricityUsageSpecificServicePoints|1  |
-   |/energy/electricity/servicepoints/  |                                            |                                        |   |
-   |usage                               |                                            |                                        |   |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |GET /energy/electricity/            |energy:electricity.servicepoints.basic:read |listElectricityServicePoints            |1  |
-   |servicepoints                       |                                            |                                        |   |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |GET /energy/electricity/            |energy:electricity.servicepoints.detail:read|getElectricityServicePointDetail        |1  |
-   |servicepoints/{servicePointId}      |                                            |                                        |   |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |GET                                 |energy:electricity.der.basic:read           |getElectricityServicePointDERBulk       |1  |
-   |/energy/electricity/servicepoints/  |                                            |                                        |   |
-   |der                                 |                                            |                                        |   |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
-   |POST                                |energy:electricity.der.basic:read           |getElectricityDERSpecificServicePoints  |1  |
-   |/energy/electricity/servicepoints/  |                                            |                                        |   |
-   |der                                 |                                            |                                        |   |
-   +------------------------------------+--------------------------------------------+----------------------------------------+---+
+   +====================================+============================================+=====+
+   |Resource Server Endpoint            |Authorisation Scope                         |Valid|
+   |                                    |                                            |x-v  |
+   +====================================+============================================+=====+
+   |GET /energy/accounts                |energy:accounts.basic:read                  |2    |
+   +------------------------------------+--------------------------------------------+-----+
+   |GET /energy/accounts/{accountId}    |energy:accounts.detail:read                 |2, 3 |
+   +------------------------------------+--------------------------------------------+-----+
+   |GET /energy/                        |energy:accounts.concessions:read            |1    |
+   |accounts/{accountId}/concessions    |                                            |     |
+   +------------------------------------+--------------------------------------------+-----+
+   |GET /energy/accounts/balances       |energy:billing:read                         |1    |
+   +------------------------------------+--------------------------------------------+-----+
+   |GET /energy/                        |energy:billing:read                         |1    |
+   |accounts/{accountId}/balance        |                                            |     |
+   +------------------------------------+--------------------------------------------+-----+
+   |POST /banking/accounts/balances     |energy:billing:read                         |1    |
+   +------------------------------------+--------------------------------------------+-----+
+   |GET /energy/                        |energy:accounts.paymentschedule:read        |1    |
+   |accounts/{accountId}/payment-       |                                            |     |
+   |schedule                            |                                            |     |
+   +------------------------------------+--------------------------------------------+-----+
+   |GET /energy/                        |energy:billing:read                         |1    |
+   |accounts/{accountId}/invoices       |                                            |     |
+   +------------------------------------+--------------------------------------------+-----+
+   |GET /energy/accounts/invoices       |energy:billing:read                         |1    |
+   +------------------------------------+--------------------------------------------+-----+
+   |POST /energy/accounts/invoices      |energy:billing:read                         |1    |
+   +------------------------------------+--------------------------------------------+-----+
+   |GET /energy/                        |energy:billing:read                         |1    |
+   |accounts/{accountId}/billing        |                                            |     |
+   +------------------------------------+--------------------------------------------+-----+
+   |GET /energy/accounts/billing        |energy:billing:read                         |1    |
+   +------------------------------------+--------------------------------------------+-----+
+   |POST /energy/accounts/billing       |energy:billing:read                         |1    |
+   +------------------------------------+--------------------------------------------+-----+
+   |GET /energy/electricity/            |energy:electricity.usage:read               |1    |
+   |servicepoints/{servicePointId}/usage|                                            |     |
+   +------------------------------------+--------------------------------------------+-----+
+   |GET                                 |energy:electricity.usage:read               |1    |
+   |/energy/electricity/servicepoints/  |                                            |     |
+   |usage                               |                                            |     |
+   +------------------------------------+--------------------------------------------+-----+
+   |POST                                |energy:electricity.usage:read               |1    |
+   |/energy/electricity/servicepoints/  |                                            |     |
+   |usage                               |                                            |     |
+   +------------------------------------+--------------------------------------------+-----+
+   |GET /energy/electricity/            |energy:electricity.servicepoints.basic:read |1    |
+   |servicepoints                       |                                            |     |
+   +------------------------------------+--------------------------------------------+-----+
+   |GET /energy/electricity/            |energy:electricity.servicepoints.detail:read|1    |
+   |servicepoints/{servicePointId}      |                                            |     |
+   +------------------------------------+--------------------------------------------+-----+
+   |GET                                 |energy:electricity.der.basic:read           |1    |
+   |/energy/electricity/servicepoints/  |                                            |     |
+   |der                                 |                                            |     |
+   +------------------------------------+--------------------------------------------+-----+
+   |POST                                |energy:electricity.der.basic:read           |1    |
+   |/energy/electricity/servicepoints/  |                                            |     |
+   |der                                 |                                            |     |
+   +------------------------------------+--------------------------------------------+-----+
 
                                   Table 3
 
    In addition, the Provider MAY deliver the following unauthenticated
    and generally available endpoints, in accordance with
-   [DATARIGHTPLUS-REDOCLY]:
+   [DATARIGHTPLUS-REDOCLY-ID1]:
 
         +============================+======================+=====+
         | Resource Server Endpoint   | OpenAPI Operation ID | x-v |
@@ -358,6 +359,48 @@ Table of Contents
         +----------------------------+----------------------+-----+
 
                                   Table 4
+
+3.2.1.  Electricity Authority Resource Bridge
+
+   In order to deliver information requested by the Initiator but stored
+   and mastered from the Electricity Authority, the Provider SHALL
+   provide a back-to-back endpoint bridge mapped as follows:
+
+   +====================================+============================================+
+   |Provider Resource Server Endpoint   |Electricity Authority Resource Server       |
+   |                                    |Endpoint                                    |
+   +====================================+============================================+
+   |GET /energy/electricity/            |GET /secondary/energy/electricity/          |
+   |servicepoints/{servicePointId}/usage|servicepoints/{servicePointId}/usage        |
+   +------------------------------------+--------------------------------------------+
+   |GET                                 |GET                                         |
+   |/energy/electricity/servicepoints/  |/secondary/energy/electricity/servicepoints/|
+   |usage                               |usage                                       |
+   +------------------------------------+--------------------------------------------+
+   |POST                                |POST                                        |
+   |/energy/electricity/servicepoints/  |/secondary/energy/electricity/servicepoints/|
+   |usage                               |usage                                       |
+   +------------------------------------+--------------------------------------------+
+   |GET /energy/electricity/            |GET /secondary/energy/electricity/          |
+   |servicepoints                       |servicepoints                               |
+   +------------------------------------+--------------------------------------------+
+   |GET /energy/electricity/            |GET /secondary/energy/electricity/          |
+   |servicepoints/{servicePointId}      |servicepoints/{servicePointId}              |
+   +------------------------------------+--------------------------------------------+
+   |GET                                 |GET                                         |
+   |/energy/electricity/servicepoints/  |/secondary/energy/electricity/servicepoints/|
+   |der                                 |der                                         |
+   +------------------------------------+--------------------------------------------+
+   |POST                                |POST                                        |
+   |/energy/electricity/servicepoints/  |/secondary/energy/electricity/servicepoints/|
+   |der                                 |der                                         |
+   +------------------------------------+--------------------------------------------+
+
+                                  Table 5
+
+   _Note:_ Refer to the Provider Resource Server (#resource-server) and
+   Electricity Authority Resource Server (#resource-server-1) sections
+   for the appropriate API mappings.
 
 4.  Initiators
 
@@ -381,48 +424,45 @@ Table of Contents
    The Electricity Authority SHALL make the following restricted
    endpoints available to Providers, using existing authentication and
    authorisation channels, and in accordance with
-   [DATARIGHTPLUS-REDOCLY]:
+   [DATARIGHTPLUS-REDOCLY-ID1]:
 
-   +============================================+================================================+===+
-   |Resource Server Endpoint                    |OpenAPI Operation ID                            |x-v|
-   +============================================+================================================+===+
-   |GET /secondary/energy/electricity/          |getElectricalAuthorityServicePointUsage         |1  |
-   |servicepoints/{nationalMeteringId}/usage    |                                                |   |
-   +--------------------------------------------+------------------------------------------------+---+
-   |POST                                        |getElectricalAuthorityUsageSpecificServicePoints|1  |
-   |/secondary/energy/electricity/servicepoints/|                                                |   |
-   |usage                                       |                                                |   |
-   +--------------------------------------------+------------------------------------------------+---+
-   |POST /secondary/energy/electricity/         |getElectricalAuthorityServicePoints             |1  |
-   |servicepoints                               |                                                |   |
-   +--------------------------------------------+------------------------------------------------+---+
-   |GET /secondary/energy/electricity/          |getElectricalAuthorityServicePointDetail        |1  |
-   |servicepoints/{nationalMeteringId}          |                                                |   |
-   +--------------------------------------------+------------------------------------------------+---+
-   |GET /secondary/energy/electricity/          |getElectricalAuthorityServicePointDER           |1  |
-   |servicepoints/{nationalMeteringId}/der      |                                                |   |
-   +--------------------------------------------+------------------------------------------------+---+
-   |POST /secondary/energy/electricity/         |getElectricalAuthorityDERSpecificServicePoints  |1  |
-   |servicepoints                               |                                                |   |
-   +--------------------------------------------+------------------------------------------------+---+
+     +===================================================+===========+
+     | Resource Server Endpoint                          | Valid x-v |
+     +===================================================+===========+
+     | GET /secondary/energy/electricity/                | 1         |
+     | servicepoints/{nationalMeteringId}/usage          |           |
+     +---------------------------------------------------+-----------+
+     | POST /secondary/energy/electricity/servicepoints/ | 1         |
+     | usage                                             |           |
+     +---------------------------------------------------+-----------+
+     | POST /secondary/energy/electricity/servicepoints  | 1         |
+     +---------------------------------------------------+-----------+
+     | GET /secondary/energy/electricity/                | 1         |
+     | servicepoints/{nationalMeteringId}                |           |
+     +---------------------------------------------------+-----------+
+     | GET /secondary/energy/electricity/                | 1         |
+     | servicepoints/{nationalMeteringId}/der            |           |
+     +---------------------------------------------------+-----------+
+     | POST /secondary/energy/electricity/servicepoints  | 1         |
+     +---------------------------------------------------+-----------+
 
-                                  Table 5
+                                  Table 6
 
 6.  Electricity Plan Website
 
    The Electricity Plan Website SHALL deliver the following
    unauthenticated and generally available endpoints, in accordance with
-   [DATARIGHTPLUS-REDOCLY]:
+   [DATARIGHTPLUS-REDOCLY-ID1]:
 
-        +============================+======================+=====+
-        | Resource Server Endpoint   | OpenAPI Operation ID | x-v |
-        +============================+======================+=====+
-        | GET /energy/plans          | listEnergyPlans      | 1   |
-        +----------------------------+----------------------+-----+
-        | GET /energy/plans/{planId} | getEnergyPlanDetail  | 1   |
-        +----------------------------+----------------------+-----+
+     +============================+======================+===========+
+     | Resource Server Endpoint   | OpenAPI Operation ID | Valid x-v |
+     +============================+======================+===========+
+     | GET /energy/plans          | listEnergyPlans      | 1         |
+     +----------------------------+----------------------+-----------+
+     | GET /energy/plans/{planId} | getEnergyPlanDetail  | 1         |
+     +----------------------------+----------------------+-----------+
 
-                                  Table 6
+                                  Table 7
 
 7.  Acknowledgement
 
@@ -446,9 +486,10 @@ Table of Contents
               (CDS)", <https://consumerdatastandardsaustralia.github.io/
               standards>.
 
-   [DATARIGHTPLUS-REDOCLY]
-              Low, S., Kolera, B., and W. Cai, "DataRight+: Redocly",
-              <https://datarightplus.github.io/datarightplus-redocly/>.
+   [DATARIGHTPLUS-REDOCLY-ID1]
+              Low, S., Kolera, B., and W. Cai, "DataRight+: Redocly
+              (ID1)", <https://datarightplus.github.io/datarightplus-
+              redocly/?v=ID1>.
 
    [DATARIGHTPLUS-ROSETTA]
               Low, S., "DataRight+ Rosetta Stone",
