@@ -10,7 +10,7 @@ value = "draft-authors-datarightplus-resource-set-energy-latest"
 stream = "independent"
 status = "experimental"
 
-date = 2024-03-28T00:00:00Z
+date = 2024-04-02T00:00:00Z
 
 [[author]]
 initials="S."
