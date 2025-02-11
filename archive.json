@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-30T00:07:08.918243+00:00",
+  "timestamp": "2025-02-11T00:07:19.595474+00:00",
   "repo": "datarightplus/datarightplus-resource-set-energy",
   "labels": [
     {
@@ -50,5 +50,34 @@
     }
   ],
   "issues": [],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOLoC2A86KiTPV",
+      "title": "Upgrade to latest github workflow",
+      "url": "https://github.com/datarightplus/datarightplus-resource-set-energy/pull/1",
+      "state": "MERGED",
+      "author": "perlboy",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-09T00:45:15Z",
+      "updatedAt": "2025-02-09T00:45:28Z",
+      "baseRepository": "datarightplus/datarightplus-resource-set-energy",
+      "baseRefName": "main",
+      "baseRefOid": "5967c525b63984acbca118f4e2b9febb984e683c",
+      "headRepository": "datarightplus/datarightplus-resource-set-energy",
+      "headRefName": "upgrade-github-workflow",
+      "headRefOid": "eb66d7f680803d33655d7b6ebc5caee2ee897993",
+      "closedAt": "2025-02-09T00:45:28Z",
+      "mergedAt": "2025-02-09T00:45:28Z",
+      "mergedBy": "perlboy",
+      "mergeCommit": {
+        "oid": "fe8f9486b13f8baf45ae5b52019f94f3c295acca"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
